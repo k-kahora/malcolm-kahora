@@ -1,0 +1,8 @@
+#+TITLE: Malcolms Website
+* The Title
+
+This is the title of the website
+* Bruh
+* My Emacs Configuration
+[[./README.org][init.el]]
+
