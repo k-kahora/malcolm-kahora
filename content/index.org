@@ -1,9 +1,17 @@
 #+TITLE: Malcolms Website
-* The Title
-
-This is the title of the website
-* Bruh
 * My Emacs Configuration
 [[./README.org][init.el]]
-* New Addition to the website
+* Bio
+Heelo my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+* Projects
+** Java
+Heres a game I have been working on in java
+* Github
+Heres my [[https://github.com/cerealman23][github]]
+* Data Base of Notes
+"I want to add my org roam files here"
+* Resume
+* Favorite Music
+* Links
+[[instagram][instagram]]
 
