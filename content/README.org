@@ -38,10 +38,11 @@
    #+begin_src emacs-lisp
 
 
-; registers
-(set-register ?i (cons 'file "/home/malcolm2/.emacs.d/README.org"))
-(set-register ?l (cons 'file "/mnt/c/Home/SophmoreYear_Fall/Linear_Algebra_Homework/labs/"))
-(set-register ?t (cons 'file "c:/Users/mango/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/"))
+     ; registers
+     (set-register ?i (cons 'file "/home/malcolm2/.emacs.d/README.org"))
+     (set-register ?l (cons 'file "/mnt/c/Home/SophmoreYear_Fall/Linear_Algebra_Homework/labs/"))
+     (set-register ?t (cons 'file "c:/Users/mango/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/"))
+(set-register ?w (cons 'file "~/test_website"))
 
 
    #+end_src

@@ -1,4 +1,7 @@
-#+TITLE: Malcolms Website
+#+TITLE: Website
+#+AUTHOR: Malcolm Kahora
+#+EMAIL: Mango22MJK@gmail.com
+
 * My Emacs Configuration
 [[./README.org][init.el]]
 * Bio
