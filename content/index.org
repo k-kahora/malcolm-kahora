@@ -1,0 +1,21 @@
+#+TITLE: Website
+#+AUTHOR: Malcolm Kahora
+#+EMAIL: Mango22MJK@gmail.com
+
+* My Emacs Configuration
+[[./README.org][init.el]]
+* Bio
+Heelo my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+* Projects
+** Java
+Heres a game I have been working on in java
+* Github
+Heres my [[https://github.com/cerealman23][github]]
+* Data Base of Notes
+"I want to add my org roam files here"
+[[./RoamNotes/20210831121049-classes.org][org-roam]]
+* Resume
+* Favorite Music
+* Links
+[[https://www.instagram.com/malcolmkahora/][Instagram]]
+
