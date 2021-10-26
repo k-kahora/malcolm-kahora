@@ -16,77 +16,77 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgda49df4">My Emacs Configuration</a></li>
-<li><a href="#org55798d9">Bio</a></li>
-<li><a href="#org086802f">Projects</a>
+<li><a href="#orge155da4">My Emacs Configuration</a></li>
+<li><a href="#org8d501a5">Bio</a></li>
+<li><a href="#org314831b">Projects</a>
 <ul>
-<li><a href="#org0d4b4d2">Java</a></li>
+<li><a href="#org04f4ddb">Java</a></li>
 </ul>
 </li>
-<li><a href="#org7baf443">Github</a></li>
-<li><a href="#org0c69c72">Data Base of Notes</a></li>
-<li><a href="#org640794d">Resume</a></li>
-<li><a href="#org98567e7">Favorite Music</a></li>
-<li><a href="#orgb3b1e9f">Links</a></li>
+<li><a href="#org8927c13">Github</a></li>
+<li><a href="#orgc8f3e32">Data Base of Notes</a></li>
+<li><a href="#orgb5d3aa3">Resume</a></li>
+<li><a href="#org7ed8330">Favorite Music</a></li>
+<li><a href="#org8765326">Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgda49df4" class="outline-2">
-<h2 id="orgda49df4">My Emacs Configuration</h2>
-<div class="outline-text-2" id="text-orgda49df4">
+<div id="outline-container-orge155da4" class="outline-2">
+<h2 id="orge155da4">My Emacs Configuration</h2>
+<div class="outline-text-2" id="text-orge155da4">
 <p>
 <a href="./README.html">init.el</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org55798d9" class="outline-2">
-<h2 id="org55798d9">Bio</h2>
-<div class="outline-text-2" id="text-org55798d9">
+<div id="outline-container-org8d501a5" class="outline-2">
+<h2 id="org8d501a5">Bio</h2>
+<div class="outline-text-2" id="text-org8d501a5">
 <p>
 Heelo my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
 </p>
 </div>
 </div>
-<div id="outline-container-org086802f" class="outline-2">
-<h2 id="org086802f">Projects</h2>
-<div class="outline-text-2" id="text-org086802f">
+<div id="outline-container-org314831b" class="outline-2">
+<h2 id="org314831b">Projects</h2>
+<div class="outline-text-2" id="text-org314831b">
 </div>
-<div id="outline-container-org0d4b4d2" class="outline-3">
-<h3 id="org0d4b4d2">Java</h3>
-<div class="outline-text-3" id="text-org0d4b4d2">
+<div id="outline-container-org04f4ddb" class="outline-3">
+<h3 id="org04f4ddb">Java</h3>
+<div class="outline-text-3" id="text-org04f4ddb">
 <p>
 Heres a game I have been working on in java
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7baf443" class="outline-2">
-<h2 id="org7baf443">Github</h2>
-<div class="outline-text-2" id="text-org7baf443">
+<div id="outline-container-org8927c13" class="outline-2">
+<h2 id="org8927c13">Github</h2>
+<div class="outline-text-2" id="text-org8927c13">
 <p>
 Heres my <a href="https://github.com/cerealman23">github</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org0c69c72" class="outline-2">
-<h2 id="org0c69c72">Data Base of Notes</h2>
-<div class="outline-text-2" id="text-org0c69c72">
+<div id="outline-container-orgc8f3e32" class="outline-2">
+<h2 id="orgc8f3e32">Data Base of Notes</h2>
+<div class="outline-text-2" id="text-orgc8f3e32">
 <p>
 "I want to add my org roam files here"
 <a href="./RoamNotes/20210831121049-classes.html">org-roam</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org640794d" class="outline-2">
-<h2 id="org640794d">Resume</h2>
+<div id="outline-container-orgb5d3aa3" class="outline-2">
+<h2 id="orgb5d3aa3">Resume</h2>
 </div>
-<div id="outline-container-org98567e7" class="outline-2">
-<h2 id="org98567e7">Favorite Music</h2>
+<div id="outline-container-org7ed8330" class="outline-2">
+<h2 id="org7ed8330">Favorite Music</h2>
 </div>
-<div id="outline-container-orgb3b1e9f" class="outline-2">
-<h2 id="orgb3b1e9f">Links</h2>
-<div class="outline-text-2" id="text-orgb3b1e9f">
+<div id="outline-container-org8765326" class="outline-2">
+<h2 id="org8765326">Links</h2>
+<div class="outline-text-2" id="text-org8765326">
 <p>
 <a href="https://www.instagram.com/malcolmkahora/">Instagram</a>
 </p>
