@@ -11,6 +11,8 @@ Heelo my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs con
 Heres a game I have been working on in java
 * Github
 Heres my [[https://github.com/cerealman23][github]]
+* Manos-Sim
+[[./install_mano.org][Linux (Ubuntu 20.04)]]
 * Data Base of Notes
 "I want to add my org roam files here"
 [[./RoamNotes/20210831121049-classes.org][org-roam]]

@@ -1,0 +1,48 @@
+* Windows 10
+* Linux (Ubuntu 20.04)
+
+#+begin_src shell
+
+sudo apt update
+  sudo apt install default-jdk
+
+
+#+end_src
+
+Check the version is 11
+
+#+begin_src shell
+
+java --version
+
+#+end_src
+
+Should have a similar output
+
+#+begin_src shell
+
+openjdk 11.0.11 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode)
+
+#+end_src
+
+Find out where you want to install the simulator
+
+install it with the following
+
+#+begin_src shell
+
+wget https://github.com/TomerAberbach/mano-simulator/releases/download/mano-simulator-1.0-SNAPSHOT/mano-simulator-1.0-SNAPSHOT.jar
+
+#+end_src
+
+You can now run the jar with
+
+#+begin_src shell
+
+  java -jar mano-simulator-1.0-SNAPSHOT.jar
+
+#+end_src
+
+The simulator GUI should pop up at this point and be ready to run.
