@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd6fb363">Windows 10</a>
+<ul>
+<li><a href="#org33320c8">Download the mano-sim jar</a></li>
+<li><a href="#org716d027">Download the exe  for Java11</a></li>
+<li><a href="#org4108bc7">Run cmd as the administrator.</a></li>
+<li><a href="#org1f80e55">Change your directory with cd to arrive where the mano-sim jar is installed</a></li>
+</ul>
+</li>
+<li><a href="#org9c36da8">Linux (Ubuntu 20.04)</a>
+<ul>
+<li><a href="#orgc2b9aba">Install the default JDK</a></li>
+<li><a href="#orgbee9e18">Check the version is 11</a></li>
+<li><a href="#orgc2c411f">Install the simulator</a></li>
+<li><a href="#org5bea6b2">Run the program</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd6fb363" class="outline-2">
+<h2 id="orgd6fb363">Windows 10</h2>
+<div class="outline-text-2" id="text-orgd6fb363">
+</div>
+<div id="outline-container-org33320c8" class="outline-3">
+<h3 id="org33320c8">Download the <a href="https://github.com/TomerAberbach/mano-simulator/releases/download/mano-simulator-1.0-SNAPSHOT/mano-simulator-1.0-SNAPSHOT.jar">mano-sim jar</a></h3>
+</div>
+
+<div id="outline-container-org716d027" class="outline-3">
+<h3 id="org716d027">Download the exe  for <a href="https://www.oracle.com/java/technologies/downloads/#java11-windows">Java11</a></h3>
+<div class="outline-text-3" id="text-org716d027">
+<p>
+You might have to make an oracle account
+</p>
+
+<p>
+The installer will download the binary to your program files by default.  Either way find out where the bin is stored.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4108bc7" class="outline-3">
+<h3 id="org4108bc7">Run cmd as the administrator.</h3>
+<div class="outline-text-3" id="text-org4108bc7">
+<p>
+Type in this command to set the JAVA HOME system variable.  The path should be to your java 11 bin files.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+setx JAVA_HOME -m <span style="font-style: italic;">"c:\Program Files\Java\jdk-11.0.13\bin"</span>
+
+</pre>
+</div>
+
+<p>
+restart the command prompt and check if the environment variable is set with
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> %JAVA_HOME%
+
+</pre>
+</div>
+
+<p>
+this should output the path to the bin files
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f80e55" class="outline-3">
+<h3 id="org1f80e55">Change your directory with cd to arrive where the mano-sim jar is installed</h3>
+<div class="outline-text-3" id="text-org1f80e55">
+<p>
+run
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">
+java -jar mano-simulator-1.0-SNAPSHOT.jar
+
+</pre>
+</div>
+
+<p>
+Th GUI should pop up and be ready to run
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c36da8" class="outline-2">
+<h2 id="org9c36da8">Linux (Ubuntu 20.04)</h2>
+<div class="outline-text-2" id="text-org9c36da8">
+</div>
+<div id="outline-container-orgc2b9aba" class="outline-3">
+<h3 id="orgc2b9aba">Install the default JDK</h3>
+<div class="outline-text-3" id="text-orgc2b9aba">
+<div class="org-src-container">
+<pre class="src src-shell">
+sudo apt update
+  sudo apt install default-jdk
+
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbee9e18" class="outline-3">
+<h3 id="orgbee9e18">Check the version is 11</h3>
+<div class="outline-text-3" id="text-orgbee9e18">
+<div class="org-src-container">
+<pre class="src src-shell">
+java --version
+
+</pre>
+</div>
+
+<p>
+Should have a similar output
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+openjdk 11.0.11 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2c411f" class="outline-3">
+<h3 id="orgc2c411f">Install the simulator</h3>
+<div class="outline-text-3" id="text-orgc2c411f">
+<p>
+Find out where you want to install the simulator
+</p>
+
+<p>
+Install it with the following
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+wget https://github.com/TomerAberbach/mano-simulator/releases/download/mano-simulator-1.0-SNAPSHOT/mano-simulator-1.0-SNAPSHOT.jar
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5bea6b2" class="outline-3">
+<h3 id="org5bea6b2">Run the program</h3>
+<div class="outline-text-3" id="text-org5bea6b2">
+<p>
+You can now run the jar with
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+java -jar mano-simulator-1.0-SNAPSHOT.jar
+
+</pre>
+</div>
+
+<p>
+The simulator GUI should pop up at this point and be ready to run.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>
