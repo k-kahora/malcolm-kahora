@@ -5,7 +5,12 @@
 * My Emacs Configuration
 [[./README.org][init.el]]
 * Bio
-Heelo my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+Hello my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+* Tutorials
+** Installing Mano Simulator on Windows/Linux
+[[./mano_instructions.org][Mano Sim]]
+
+
 * Projects
 ** Java
 Heres a game I have been working on in java

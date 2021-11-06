@@ -1,0 +1,94 @@
+* Windows 10
+
+** Download the [[https://github.com/TomerAberbach/mano-simulator/releases/download/mano-simulator-1.0-SNAPSHOT/mano-simulator-1.0-SNAPSHOT.jar][mano-sim jar]]
+
+**  Download the exe  for [[https://www.oracle.com/java/technologies/downloads/#java11-windows][Java11]] 
+
+You might have to make an oracle account
+
+The installer will download the binary to your program files by default.  Either way find out where the bin is stored.
+
+** Run cmd as the administrator.
+
+Type in this command to set the JAVA HOME system variable.  The path should be to your java 11 bin files.
+
+#+begin_src shell
+
+setx JAVA_HOME -m "c:\Program Files\Java\jdk-11.0.13\bin"
+
+#+end_src
+
+restart the command prompt and check if the environment variable is set with
+
+#+begin_src shell
+
+echo %JAVA_HOME%
+
+#+end_src
+
+this should output the path to the bin files
+
+** Change your directory with cd to arrive where the mano-sim jar is installed
+
+  run
+  #+begin_src shell
+
+java -jar mano-simulator-1.0-SNAPSHOT.jar
+
+  #+end_src
+
+Th GUI should pop up and be ready to run
+
+* Linux (Ubuntu 20.04)
+
+** Install the default JDK
+
+#+begin_src shell
+
+sudo apt update
+  sudo apt install default-jdk
+
+
+#+end_src
+
+** Check the version is 11 
+
+#+begin_src shell
+
+java --version
+
+#+end_src
+
+Should have a similar output
+
+#+begin_src shell
+
+openjdk 11.0.11 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode)
+
+#+end_src
+
+** Install the simulator 
+
+Find out where you want to install the simulator
+
+Install it with the following
+
+#+begin_src shell
+
+wget https://github.com/TomerAberbach/mano-simulator/releases/download/mano-simulator-1.0-SNAPSHOT/mano-simulator-1.0-SNAPSHOT.jar
+
+#+end_src
+
+** Run the program
+
+You can now run the jar with
+
+#+begin_src shell
+
+  java -jar mano-simulator-1.0-SNAPSHOT.jar
+
+#+end_src
+
+The simulator GUI should pop up at this point and be ready to run.
