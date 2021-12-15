@@ -1,0 +1,48 @@
+
+managerRight.png
+size: 256,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+managerRight1
+  rotate: false
+  xy: 2, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+managerRight2
+  rotate: false
+  xy: 24, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+managerRight3
+  rotate: false
+  xy: 46, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+managerRight4
+  rotate: false
+  xy: 68, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+managerRight5
+  rotate: false
+  xy: 90, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1
+managerRight6
+  rotate: false
+  xy: 112, 2
+  size: 20, 21
+  orig: 20, 21
+  offset: 0, 0
+  index: -1

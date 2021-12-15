@@ -1,0 +1,14 @@
+{
+com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+	default: {
+		up: startbutton1
+		down: startbutton3
+		over: startbutton2
+	}
+	quit: {
+		up: quibutton1
+		down: quibutton3
+		over: quibutton2
+	}
+}
+}
