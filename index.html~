@@ -1,30 +1,138 @@
-<!doctype html>
-<html>
-       <head>
-              <title>TraderJoesBlows</title>
-              <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-              <meta id="gameViewport" name="viewport" content="width=device-width initial-scale=1">
-              <link href="styles.css" rel="stylesheet" type="text/css">
-       </head>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Website</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Website</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd075bd5">My Emacs Configuration</a></li>
+<li><a href="#orgc3f5c5b">Bio</a></li>
+<li><a href="#org3d02b38">Tutorials</a>
+<ul>
+<li><a href="#org9deefb8">Installing Mano Simulator on Windows/Linux</a></li>
+</ul>
+</li>
+<li><a href="#org65fa95e">Projects</a>
+<ul>
+<li><a href="#org667bc32">Java</a></li>
+</ul>
+</li>
+<li><a href="#orgfcae6e2">Github</a></li>
+<li><a href="#orgaf2b793">Manos-Sim</a></li>
+<li><a href="#org1d6bb32">Data Base of Notes</a></li>
+<li><a href="#orga12d6cc">Resume</a></li>
+<li><a href="#orgec7a1cd">Favorite Music</a></li>
+<li><a href="#org8fa58e5">Links</a></li>
+</ul>
+</div>
+</div>
 
-       <body>
-              <a class="superdev" href="javascript:%7B%20window.__gwt_bookmarklet_params%20%3D%20%7B'server_url'%3A'http%3A%2F%2Flocalhost%3A9876%2F'%7D%3B%20var%20s%20%3D%20document.createElement('script')%3B%20s.src%20%3D%20'http%3A%2F%2Flocalhost%3A9876%2Fdev_mode_on.js'%3B%20void(document.getElementsByTagName('head')%5B0%5D.appendChild(s))%3B%7D">&#8635;</a>
-              <div align="center" id="embed-html"></div>
-              <script type="text/javascript" src="html/html.nocache.js"></script>
-       </body>
+<div id="outline-container-orgd075bd5" class="outline-2">
+<h2 id="orgd075bd5">My Emacs Configuration</h2>
+<div class="outline-text-2" id="text-orgd075bd5">
+<p>
+<a href="./README.html">init.el</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3f5c5b" class="outline-2">
+<h2 id="orgc3f5c5b">Bio</h2>
+<div class="outline-text-2" id="text-orgc3f5c5b">
+<p>
+Hello my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+</p>
+</div>
+</div>
+<div id="outline-container-org3d02b38" class="outline-2">
+<h2 id="org3d02b38">Tutorials</h2>
+<div class="outline-text-2" id="text-org3d02b38">
+</div>
+<div id="outline-container-org9deefb8" class="outline-3">
+<h3 id="org9deefb8">Installing Mano Simulator on Windows/Linux</h3>
+<div class="outline-text-3" id="text-org9deefb8">
+<p>
+<a href="./mano_instructions.html">Mano Sim</a>
+</p>
+</div>
+</div>
+</div>
 
-       <script>
-              function handleMouseDown(evt) {
-                evt.preventDefault();
-                evt.stopPropagation();
-                window.focus();
-              }
 
-              function handleMouseUp(evt) {
-                evt.preventDefault();
-                evt.stopPropagation();
-              }
-              document.getElementById('embed-html').addEventListener('mousedown', handleMouseDown, false);
-              document.getElementById('embed-html').addEventListener('mouseup', handleMouseUp, false);
-       </script>
+<div id="outline-container-org65fa95e" class="outline-2">
+<h2 id="org65fa95e">Projects</h2>
+<div class="outline-text-2" id="text-org65fa95e">
+</div>
+<div id="outline-container-org667bc32" class="outline-3">
+<h3 id="org667bc32">Java</h3>
+<div class="outline-text-3" id="text-org667bc32">
+<p>
+Heres a game I have been working on in java
+</p>
+
+<p>
+<a href="./dist/test.html">game</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfcae6e2" class="outline-2">
+<h2 id="orgfcae6e2">Github</h2>
+<div class="outline-text-2" id="text-orgfcae6e2">
+<p>
+Heres my <a href="https://github.com/cerealman23">github</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgaf2b793" class="outline-2">
+<h2 id="orgaf2b793">Manos-Sim</h2>
+<div class="outline-text-2" id="text-orgaf2b793">
+<p>
+<a href="./install_mano.html">Linux (Ubuntu 20.04)</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1d6bb32" class="outline-2">
+<h2 id="org1d6bb32">Data Base of Notes</h2>
+<div class="outline-text-2" id="text-org1d6bb32">
+<p>
+"I want to add my org roam files here"
+<a href="./RoamNotes/20210831121049-classes.html">org-roam</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orga12d6cc" class="outline-2">
+<h2 id="orga12d6cc">Resume</h2>
+</div>
+<div id="outline-container-orgec7a1cd" class="outline-2">
+<h2 id="orgec7a1cd">Favorite Music</h2>
+</div>
+<div id="outline-container-org8fa58e5" class="outline-2">
+<h2 id="org8fa58e5">Links</h2>
+<div class="outline-text-2" id="text-org8fa58e5">
+<p>
+<a href="https://www.instagram.com/malcolmkahora/">Instagram</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.2 (<a href="https://orgmode.org">Org</a> mode 9.4.4)</p>
+</div>
+</body>
 </html>
