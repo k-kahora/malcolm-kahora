@@ -1,0 +1,118 @@
+
+slimeBlow.png
+size: 256,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+slimeBlow1
+  rotate: false
+  xy: 2, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 1
+slimeBlow2
+  rotate: false
+  xy: 2, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 2
+slimeBlow3
+  rotate: false
+  xy: 2, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 3
+slimeBlow4
+  rotate: false
+  xy: 2, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 4
+slimeBlow5
+  rotate: false
+  xy: 2, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 5
+slimeBlow10
+  rotate: false
+  xy: 117, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 10
+slimeBlow11
+  rotate: false
+  xy: 140, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 11
+slimeBlow12
+  rotate: false
+  xy: 163, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 12
+slimeBlow13
+  rotate: false
+  xy: 186, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 13
+slimeBlow14
+  rotate: false
+  xy: 209, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 14
+slimeBlow15
+  rotate: false
+  xy: 209, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 15
+slimeBlow16
+  rotate: false
+  xy: 209, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 16
+slimeBlow6
+  rotate: false
+  xy: 25, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 6
+slimeBlow7
+  rotate: false
+  xy: 48, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 7
+slimeBlow8
+  rotate: false
+  xy: 71, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 8
+slimeBlow9
+  rotate: false
+  xy: 94, 2
+  size: 21, 16
+  orig: 21, 16
+  offset: 0, 0
+  index: 9
