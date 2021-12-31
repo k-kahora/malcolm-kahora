@@ -21,38 +21,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org63a963a">Welcome</a></li>
-<li><a href="#org26abe21">Why emacs</a></li>
-<li><a href="#org4828a89">Projects</a>
+<li><a href="#org5ed8476">Welcome</a></li>
+<li><a href="#orgbf2235e">Why emacs</a></li>
+<li><a href="#org971a295">Projects</a>
 <ul>
-<li><a href="#org6a77c14">Wii Tanks Clone</a></li>
-<li><a href="#org3273fa3">PathFinding</a></li>
+<li><a href="#org1371fd8">Wii Tanks Clone</a></li>
+<li><a href="#org2003db6">PathFinding</a></li>
 </ul>
 </li>
-<li><a href="#org87eecfc">Tutorials</a>
+<li><a href="#orgb583b05">Tutorials</a>
 <ul>
-<li><a href="#org069ed0c">Installing Mano Simulator on Windows/Linux</a></li>
+<li><a href="#org26b0f91">Installing Mano Simulator on Windows/Linux</a></li>
 </ul>
 </li>
-<li><a href="#org9b04de2">Github</a></li>
-<li><a href="#org97d7df0"><span class="todo TODO">TODO</span> Data Base of Notes</a></li>
-<li><a href="#orgcf00718"><span class="todo TODO">TODO</span> Links</a></li>
+<li><a href="#org702456d">Github</a></li>
+<li><a href="#orgf80b78a"><span class="todo TODO">TODO</span> Data Base of Notes</a></li>
+<li><a href="#orgeb4ce2b"><span class="todo TODO">TODO</span> Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org63a963a" class="outline-2">
-<h2 id="org63a963a">Welcome</h2>
-<div class="outline-text-2" id="text-org63a963a">
+<div id="outline-container-org5ed8476" class="outline-2">
+<h2 id="org5ed8476">Welcome</h2>
+<div class="outline-text-2" id="text-org5ed8476">
 <p>
 Hello welcome to my site.  My name is Malcolm Kahora.  This site is built using emacs org mode and github pages to publish.  I'm a computer science major my main interests at the moment are Linux, Interpreters, Operating Systems and databases.  
 </p>
 </div>
 </div>
 
-<div id="outline-container-org26abe21" class="outline-2">
-<h2 id="org26abe21">Why emacs</h2>
-<div class="outline-text-2" id="text-org26abe21">
+<div id="outline-container-orgbf2235e" class="outline-2">
+<h2 id="orgbf2235e">Why emacs</h2>
+<div class="outline-text-2" id="text-orgbf2235e">
 <p>
 Emacs is a GUI application under the GNU license.  Its my absolute favorite application.  I pretty much do everything on it.  I program on it, write documents, check email, make websites, and navigate my computer.  I love the extensible and how easy it is to mold to your lickings.  Below is Emacs configuration if you want to take a look.  Alot if it is pulled from <a href="https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ">System Crafters</a> (Add site link).   
 </p>
@@ -62,17 +62,17 @@ Emacs is a GUI application under the GNU license.  Its my absolute favorite appl
 </p>
 </div>
 </div>
-<div id="outline-container-org4828a89" class="outline-2">
-<h2 id="org4828a89">Projects</h2>
-<div class="outline-text-2" id="text-org4828a89">
+<div id="outline-container-org971a295" class="outline-2">
+<h2 id="org971a295">Projects</h2>
+<div class="outline-text-2" id="text-org971a295">
 <p>
 These are my major personal projects so far.  Their both written in Java using the <a href="https://libgdx.com/">Libgdx</a> framework.  They run on html5 through gwt which converts java script from java.  
 </p>
 </div>
 
-<div id="outline-container-org6a77c14" class="outline-3">
-<h3 id="org6a77c14">Wii Tanks Clone</h3>
-<div class="outline-text-3" id="text-org6a77c14">
+<div id="outline-container-org1371fd8" class="outline-3">
+<h3 id="org1371fd8">Wii Tanks Clone</h3>
+<div class="outline-text-3" id="text-org1371fd8">
 <p>
 As a child I played alto of Wii tanks with my cousin so I anted to make my own version.  Alot of the creative is from my college dining hall.  The food their atrocious and I wanted to make game satirizing it.
 </p>
@@ -84,9 +84,9 @@ As a child I played alto of Wii tanks with my cousin so I anted to make my own v
 </p>
 </div>
 </div>
-<div id="outline-container-org3273fa3" class="outline-3">
-<h3 id="org3273fa3">PathFinding</h3>
-<div class="outline-text-3" id="text-org3273fa3">
+<div id="outline-container-org2003db6" class="outline-3">
+<h3 id="org2003db6">PathFinding</h3>
+<div class="outline-text-3" id="text-org2003db6">
 <p>
 This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
 </p>
@@ -98,17 +98,17 @@ This was my first successful hackathon my team ended up winning a prize which wa
 </div>
 </div>
 
-<div id="outline-container-org87eecfc" class="outline-2">
-<h2 id="org87eecfc">Tutorials</h2>
-<div class="outline-text-2" id="text-org87eecfc">
+<div id="outline-container-orgb583b05" class="outline-2">
+<h2 id="orgb583b05">Tutorials</h2>
+<div class="outline-text-2" id="text-orgb583b05">
 <p>
 I wrote this tutorial for using a assembler in my computer architecture class.
 </p>
 </div>
 
-<div id="outline-container-org069ed0c" class="outline-3">
-<h3 id="org069ed0c">Installing Mano Simulator on Windows/Linux</h3>
-<div class="outline-text-3" id="text-org069ed0c">
+<div id="outline-container-org26b0f91" class="outline-3">
+<h3 id="org26b0f91">Installing Mano Simulator on Windows/Linux</h3>
+<div class="outline-text-3" id="text-org26b0f91">
 <p>
 <a href="./mano_instructions.html">Mano Sim</a>
 </p>
@@ -117,18 +117,18 @@ I wrote this tutorial for using a assembler in my computer architecture class.
 </div>
 
 
-<div id="outline-container-org9b04de2" class="outline-2">
-<h2 id="org9b04de2">Github</h2>
-<div class="outline-text-2" id="text-org9b04de2">
+<div id="outline-container-org702456d" class="outline-2">
+<h2 id="org702456d">Github</h2>
+<div class="outline-text-2" id="text-org702456d">
 <p>
 Heres my <a href="https://github.com/cerealman23">github</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org97d7df0" class="outline-2">
-<h2 id="org97d7df0"><span class="todo TODO">TODO</span> Data Base of Notes</h2>
-<div class="outline-text-2" id="text-org97d7df0">
+<div id="outline-container-orgf80b78a" class="outline-2">
+<h2 id="orgf80b78a"><span class="todo TODO">TODO</span> Data Base of Notes</h2>
+<div class="outline-text-2" id="text-orgf80b78a">
 <p>
 "I want to add my org roam files here"
 <a href="./RoamNotes/20210831121049-classes.html">org-roam</a>
@@ -136,9 +136,9 @@ Heres my <a href="https://github.com/cerealman23">github</a>
 </div>
 </div>
 
-<div id="outline-container-orgcf00718" class="outline-2">
-<h2 id="orgcf00718"><span class="todo TODO">TODO</span> Links</h2>
-<div class="outline-text-2" id="text-orgcf00718">
+<div id="outline-container-orgeb4ce2b" class="outline-2">
+<h2 id="orgeb4ce2b"><span class="todo TODO">TODO</span> Links</h2>
+<div class="outline-text-2" id="text-orgeb4ce2b">
 <p>
 <a href="https://www.instagram.com/malcolmkahora/">Instagram</a>
 </p>
