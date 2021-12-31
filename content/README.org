@@ -1,11 +1,13 @@
 #+TITLE: My Emacs Configuration
 #+AUTHOR: Malcolm Kahora
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-
-TESTING WEBSITE
+#+TITLE: My Emacs Configuration
+#+AUTHOR: Malcolm Kahora
 
 * Initial Start Up
 ** Remove Scroolbar
+#+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
    #+begin_src emacs-lisp
 
      (scroll-bar-mode -1)
@@ -36,6 +38,11 @@ TESTING WEBSITE
 (menu-bar-mode -1)
 
    #+end_src
+** Auto update
+
+#+begin_src emacs-lisp
+(auto-revert-mode t)
+#+end_src
 * General Set Up
 ** Registers
    #+begin_src emacs-lisp
@@ -55,6 +62,15 @@ TESTING WEBSITE
   (org-babel-load-file
    (expand-file-name "macros.el"
     user-emacs-directory))
+
+#+end_src
+** Local Varibles Warning
+
+Pops a mini buffer before evaluating local varibles
+
+#+begin_src emacs-lisp
+
+(setq enable-local-variables t)
 
 #+end_src
 * use-package
@@ -87,6 +103,10 @@ TESTING WEBSITE
 
 * Packages
 ** Ivy
+
+Use ivy-occur to store ivy completion into a buffer keybinding: C-c C-o
+
+My favorite completion framework for files.  *TIP* use M-o for actions you can perform on files.
 *** Main Ivy Config
     #+begin_src emacs-lisp
 
@@ -124,17 +144,35 @@ Adds rich descriptions to functions in minibuffer
 
 
 #+end_src
+** Which key
+When typing a command bring up a pop up of all the possible key completions
+
+#+begin_src emacs-lisp
+
+(use-package which-key
+  :ensure t
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 1))     ;; delay before it pops up in sec
+
+
+#+end_src
 ** Magit
    #+begin_src emacs-lisp
 
 
-(use-package magit
+     (use-package magit
 
-  :ensure t  
-  ; replace current window with magit
-  :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  :config
-  :bind (("C-x g" . magit)))
+
+       :ensure t
+
+  
+
+       ; replace current window with magit
+       :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+       :config
+       :bind (("C-x g" . magit)))
 
 
    #+end_src
@@ -173,26 +211,88 @@ This is just better help buffers when using C-h
 
    #+end_src
 
+** Company
+Auto complete package, very good for the C family
+#+begin_src emacs-lisp
+
+  (use-package company
+    :ensure t
+    :config
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3) ; after 3 charecters auto complete
+    (global-company-mode t) ; so company mode is on 24/7
+    (define-key company-active-map (kbd "C-j") 'company-select-next)
+  (define-key company-active-map (kbd "C-k") 'company-select-previous)
+  (define-key company-search-map (kbd "C-j") 'company-select-next)
+  (define-key company-search-map (kbd "C-k") 'company-select-previous))
+
+#+end_src
+
 ** yasnippet
    This package is great for creating small text shortcuts for common words or expressions
    #+begin_src emacs-lisp
 
 
-(use-package yasnippet
-  :ensure t
-  :init
-  :config (use-package yasnippet-snippets
-	    :ensure t)
-  (yas-reload-all))
+     (use-package yasnippet
+       :ensure t
+       :init
+       :config (use-package yasnippet-snippets
+                 :ensure t)
+       (yas-reload-all))
 
-; these hooks enable yas based onw hat mode you in
+                                             ; these hooks enable yas based onw hat mode you in
 
-(add-hook 'org-mode-hook #'yas-minor-mode)
-(add-hook 'org-roam-mode-hook 'yas-minor-mode)
-(add-hook 'c++-mode-hook 'yas-minor-mode)
-(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+     (add-hook 'org-mode-hook #'yas-minor-mode)
+     (add-hook 'org-roam-mode-hook 'yas-minor-mode)
+     (add-hook 'c++-mode-hook 'yas-minor-mode)
+     (add-hook 'c-mode 'yas-minor-mode)
+     (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
 
    #+end_src
+
+** beacon
+#+begin_src emacs-lisp
+
+  ;(beacon-mode t)
+;(beacon-size 90)
+
+#+end_src
+
+** Projectile
+A project management package for emacs super well designed and very useful.  Can test the project find all files in the project and other projected centered functions.  You can set local project varibles with C-p E and run it with M-: (hack- local varibles.
+
+Set counsel-projectile-git-grep to a custom key binding its super useful (Only if ripgrep is installed
+
+#+begin_src emacs-lisp
+
+  (use-package projectile
+    :ensure t
+    :diminish projectile-mode
+    :config (projectile-mode)
+    :custom ((projectile-completion-system 'ivy))  ; I uses Ivy there are other options at projectile-completion-system
+    :bind-keymap
+    ("C-c p" . projectile-command-map)
+    :init
+    ;; NOTE: Set this to the folder where you keep your Git repos!
+    (when (file-directory-p "/mnt/c/Users/mango/Documents/") ; When this directory exists set the projectile-project-search-path to that value below
+      (setq projectile-project-search-path '("/mnt/c/Users/mango/Documents/")))
+    (setq projectile-switch-project-action #'dired)) 
+
+
+
+#+end_src
+
+*** Counsel projectile
+
+Better actions withe Ivy and Projectile
+
+#+begin_src emacs-lisp
+
+    (use-package counsel-projectile
+      :ensure t
+      :config (counsel-projectile-mode))
+
+#+end_src
 
 * Buffer Management
   
@@ -249,46 +349,48 @@ This is just better help buffers when using C-h
    #+end_src
 ** Doom themes
 #+begin_src emacs-lisp
-    (use-package doom-themes
-      :ensure t
-      :config
-      ;; Global settings (defaults)
+      (use-package doom-themes
+        :ensure t
+        :config
+        ;; Global settings (defaults)
 
-      ;;my favorite so far is doom-one and doom-laserwave 
-  ; actually its acario-light
+        ;;my favorite so far is doom-one and doom-laserwave 
+    ; actually its acario-light
 
-      (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-            doom-themes-enable-italic t) ; if nil, italics is universally disabled
-      (load-theme 'doom-one t)
+  ; my new favorite is doom-ephmeral
+    
+        (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+              doom-themes-enable-italic t) ; if nil, italics is universally disabled
+        (load-theme 'doom-one t)
 
-      ;; Enable flashing mode-line on errors
-      (doom-themes-visual-bell-config)
-      ;; Enable custom neotree theme (all-the-icons must be installed!)
-      (doom-themes-neotree-config)
-      ;; or for treemacs users
-      (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-      (doom-themes-treemacs-config)
-      ;; Corrects (and improves) org-mode's native fontification.
-      (doom-themes-org-config))
+        ;; Enable flashing mode-line on errors
+        (doom-themes-visual-bell-config)
+        ;; Enable custom neotree theme (all-the-icons must be installed!)
+        (doom-themes-neotree-config)
+        ;; or for treemacs users
+        (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+        (doom-themes-treemacs-config)
+        ;; Corrects (and improves) org-mode's native fontification.
+        (doom-themes-org-config))
 #+end_src
 
 ** require theme
    #+begin_src emacs-lisp
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruvbox-light-soft))
- '(custom-safe-themes
-   '("4eb6fa2ee436e943b168a0cd8eab11afc0752aebb5d974bba2b2ddc8910fca8f" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+     ;;          (custom-set-variables
+     ;;           ;; custom-set-variables was added by Custom.
+     ;;           ;; If you edit it by hand, you could mess it up, so be careful.
+     ;;           ;; Your init file should contain only one such instance.
+     ;;           ;; If there is more than one, they won't work right.
+     ;;           '(custom-enabled-themes '(gruvbox-light-soft))
+     ;;           '(custom-safe-themes
+     ;;             '("4eb6fa2ee436e943b168a0cd8eab11afc0752aebb5d974bba2b2ddc8910fca8f" default)))
+
+     ;; ; for custom org roam link colors
+
+
+
+
 
 
    #+end_src
@@ -353,10 +455,41 @@ This is just better help buffers when using C-h
     #+begin_src emacs-lisp
 (defun dw/org-mode-setup ()
   (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+  (variable-pitch-mode nil)
+  (visual-line-mode nil))
 
     #+end_src
+** CV
+
+Here I want to use org mode to make my resume [[https://titan-c.gitlab.io/org-cv/][link]]
+
+This is a package that adds a CV export
+
+#+begin_src emacs-lisp
+
+  (use-package ox-moderncv
+
+      :load-path "~/org-cv/"
+    :ensure t
+      :init (require 'ox-moderncv))
+
+#+end_src
+
+
+Custom export
+
+#+begin_src emacs-lisp
+
+  (defun mk/export-resume ()
+
+  (interactive)
+    (org-export-to-file 'moderncv "moderncv.tex")
+    (org-latex-compile "moderncv.tex")
+
+    )
+
+#+end_src
+
 ** Global Bindings
    #+begin_src emacs-lisp
 
@@ -395,6 +528,13 @@ A few templates I use which work well with org-gcal
    #+end_src
 ** Org Roam
    
+*** hooks
+#+begin_src emacs-lisp
+
+    (add-hook 'org-roam-mode-hook 'flyspell-mode)
+  (add-hook 'org-mode-hook 'flyspell-mode) ; So fly spell is turned on every time org-mode is started
+
+#+end_src
 *** Initial package
     #+begin_src emacs-lisp
 
@@ -610,6 +750,116 @@ echo "hello" > #<buffer buffer-name>
 
     (use-package simple-httpd
       :ensure t)
+
+#+end_src
+
+* Programming
+
+** LSP
+LSP stand for Language-Server-Protocal and call in language servers allowing one to make a custom IDE (Very cool :D )
+I just copied the config I needed from therir [[https://emacs-lsp.github.io/lsp-mode/page/installation/][page]]
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-mode
+  :ensure t
+    :init
+    ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+    (setq lsp-keymap-prefix "C-l")
+    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+           (c-mode . lsp)
+           ;; if you want which-key integration
+           (lsp-mode . lsp-enable-which-key-integration))
+    :commands lsp)
+#+end_src
+
+lsp for ivy-framework
+#+begin_src emacs-lisp
+
+
+
+  (use-package lsp-ivy
+  :ensure t
+    :commands lsp-ivy-workspace-symbol)
+
+
+
+#+end_src
+
+lsp for treemacs
+
+#+begin_src emacs-lisp
+
+  ;; (use-package lsp-treemacs
+  ;; :ensure t
+  ;;   :commands lsp-treemacs-errors-list)
+
+#+end_src
+
+lsp for company
+
+#+begin_src emacs-lisp
+
+
+  ;; (use-package company-lsp
+  ;;   :ensure t
+  ;;   :config
+  ;;   (push 'company-lsp company-backends))
+
+#+end_src
+
+** ccls
+
+Complicated way to install ccls (I need to make an instruction guide)
+
+#+begin_src emacs-lisp
+
+(use-package ccls
+  :ensure t
+  :config
+  (setq ccls-executable "ccls")
+  (setq lsp-prefer-flymake nil)
+  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
+
+#+end_src
+
+* RSS
+
+** Elfeed
+This package makes reading and seeing RSS fields much easier
+#+begin_src emacs-lisp
+
+  ;; Configure Elfeed
+  (use-package elfeed
+    :ensure t
+    :config
+    (setq elfeed-db-directory (expand-file-name "elfeed" user-emacs-directory)
+          elfeed-show-entry-switch 'display-buffer)
+    :bind
+    ("C-x w" . elfeed ))
+
+#+end_src
+
+*** Elfeed org
+This package converts org files to a readable file for elread.  The :elfeed: tag applys to all lower levels as well
+
+#+begin_src emacs-lisp
+
+  ;; Configure Elfeed with org mode
+  (use-package elfeed-org
+    :ensure t
+    :config
+   (setq elfeed-show-entry-switch 'display-buffer)
+   (setq rmh-elfeed-org-files (list "elfeed.org")))
+
+#+end_src
+
+* Browser
+#+begin_src emacs-lisp
+
+(setq browse-url-browser-function 'browse-url-firefox)
 
 #+end_src
 

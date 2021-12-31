@@ -1,0 +1,48 @@
+
+runRight.png
+size: 256,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+runRight1
+  rotate: false
+  xy: 2, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+runRight2
+  rotate: false
+  xy: 26, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+runRight3
+  rotate: false
+  xy: 50, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+runRight4
+  rotate: false
+  xy: 74, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+runRight5
+  rotate: false
+  xy: 98, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+runRight6
+  rotate: false
+  xy: 122, 2
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1

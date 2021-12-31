@@ -1,0 +1,615 @@
+
+bulletCollisionBubble.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bubble_burst.png
+  rotate: false
+  xy: 2, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 0
+bubble_burst.png
+  rotate: false
+  xy: 2, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 1
+bubble_burst.png
+  rotate: false
+  xy: 104, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 2
+bubble_burst.png
+  rotate: false
+  xy: 2, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 3
+bubble_burst.png
+  rotate: false
+  xy: 104, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 4
+bubble_burst.png
+  rotate: false
+  xy: 206, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 5
+bubble_burst.png
+  rotate: false
+  xy: 2, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 6
+bubble_burst.png
+  rotate: false
+  xy: 104, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 7
+bubble_burst.png
+  rotate: false
+  xy: 206, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 8
+bubble_burst.png
+  rotate: false
+  xy: 308, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 9
+bubble_burst.png
+  rotate: false
+  xy: 2, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 10
+bubble_burst.png
+  rotate: false
+  xy: 104, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 11
+bubble_burst.png
+  rotate: false
+  xy: 206, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 12
+bubble_burst.png
+  rotate: false
+  xy: 308, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 13
+bubble_burst.png
+  rotate: false
+  xy: 410, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 14
+bubble_burst.png
+  rotate: false
+  xy: 2, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 15
+bubble_burst.png
+  rotate: false
+  xy: 104, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 16
+bubble_burst.png
+  rotate: false
+  xy: 206, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 17
+bubble_burst.png
+  rotate: false
+  xy: 308, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 18
+bubble_burst.png
+  rotate: false
+  xy: 410, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 19
+bubble_burst.png
+  rotate: false
+  xy: 512, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 20
+bubble_burst.png
+  rotate: false
+  xy: 2, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 21
+bubble_burst.png
+  rotate: false
+  xy: 104, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 22
+bubble_burst.png
+  rotate: false
+  xy: 206, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 23
+bubble_burst.png
+  rotate: false
+  xy: 308, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 24
+bubble_burst.png
+  rotate: false
+  xy: 410, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 25
+bubble_burst.png
+  rotate: false
+  xy: 512, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 26
+bubble_burst.png
+  rotate: false
+  xy: 614, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 27
+bubble_burst.png
+  rotate: false
+  xy: 2, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 28
+bubble_burst.png
+  rotate: false
+  xy: 104, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 29
+bubble_burst.png
+  rotate: false
+  xy: 206, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 30
+bubble_burst.png
+  rotate: false
+  xy: 308, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 31
+bubble_burst.png
+  rotate: false
+  xy: 410, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 32
+bubble_burst.png
+  rotate: false
+  xy: 512, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 33
+bubble_burst.png
+  rotate: false
+  xy: 614, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 34
+bubble_burst.png
+  rotate: false
+  xy: 716, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 35
+bubble_burst.png
+  rotate: false
+  xy: 2, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 36
+bubble_burst.png
+  rotate: false
+  xy: 104, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 37
+bubble_burst.png
+  rotate: false
+  xy: 206, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 38
+bubble_burst.png
+  rotate: false
+  xy: 308, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 39
+bubble_burst.png
+  rotate: false
+  xy: 410, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 40
+bubble_burst.png
+  rotate: false
+  xy: 512, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 41
+bubble_burst.png
+  rotate: false
+  xy: 614, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 42
+bubble_burst.png
+  rotate: false
+  xy: 716, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 43
+bubble_burst.png
+  rotate: false
+  xy: 818, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 44
+bubble_burst.png
+  rotate: false
+  xy: 2, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 45
+bubble_burst.png
+  rotate: false
+  xy: 104, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 46
+bubble_burst.png
+  rotate: false
+  xy: 206, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 47
+bubble_burst.png
+  rotate: false
+  xy: 308, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 48
+bubble_burst.png
+  rotate: false
+  xy: 410, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 49
+bubble_burst.png
+  rotate: false
+  xy: 512, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 50
+bubble_burst.png
+  rotate: false
+  xy: 614, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 51
+bubble_burst.png
+  rotate: false
+  xy: 716, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 52
+bubble_burst.png
+  rotate: false
+  xy: 818, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 53
+bubble_burst.png
+  rotate: false
+  xy: 920, 920
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 54
+bubble_burst.png
+  rotate: false
+  xy: 104, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 55
+bubble_burst.png
+  rotate: false
+  xy: 206, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 56
+bubble_burst.png
+  rotate: false
+  xy: 308, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 57
+bubble_burst.png
+  rotate: false
+  xy: 410, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 58
+bubble_burst.png
+  rotate: false
+  xy: 512, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 59
+bubble_burst.png
+  rotate: false
+  xy: 614, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 60
+bubble_burst.png
+  rotate: false
+  xy: 716, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 61
+bubble_burst.png
+  rotate: false
+  xy: 818, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 62
+bubble_burst.png
+  rotate: false
+  xy: 920, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 63
+bubble_burst.png
+  rotate: false
+  xy: 206, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 64
+bubble_burst.png
+  rotate: false
+  xy: 308, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 65
+bubble_burst.png
+  rotate: false
+  xy: 410, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 66
+bubble_burst.png
+  rotate: false
+  xy: 512, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 67
+bubble_burst.png
+  rotate: false
+  xy: 614, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 68
+bubble_burst.png
+  rotate: false
+  xy: 716, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 69
+bubble_burst.png
+  rotate: false
+  xy: 818, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 70
+bubble_burst.png
+  rotate: false
+  xy: 920, 716
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 71
+bubble_burst.png
+  rotate: false
+  xy: 308, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 72
+bubble_burst.png
+  rotate: false
+  xy: 410, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 73
+bubble_burst.png
+  rotate: false
+  xy: 512, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 74
+bubble_burst.png
+  rotate: false
+  xy: 614, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 75
+bubble_burst.png
+  rotate: false
+  xy: 716, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 76
+bubble_burst.png
+  rotate: false
+  xy: 818, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 77
+bubble_burst.png
+  rotate: false
+  xy: 920, 614
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 78
+bubble_burst.png
+  rotate: false
+  xy: 410, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 79
+bubble_burst.png
+  rotate: false
+  xy: 512, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 80
+bubble_burst.png
+  rotate: false
+  xy: 614, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 81
+bubble_burst.png
+  rotate: false
+  xy: 716, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 82
+bubble_burst.png
+  rotate: false
+  xy: 818, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 83
+bubble_burst.png
+  rotate: false
+  xy: 920, 512
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 84
+bubble_burst.png
+  rotate: false
+  xy: 512, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 85
+bubble_burst.png
+  rotate: false
+  xy: 614, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: 86

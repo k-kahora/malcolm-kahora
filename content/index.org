@@ -1,28 +1,49 @@
 #+TITLE: Website
 #+AUTHOR: Malcolm Kahora
 #+EMAIL: Mango22MJK@gmail.com
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* My Emacs Configuration
+* Welcome
+
+Hello welcome to my site.  My name is Malcolm Kahora.  This site is built using emacs org mode and github pages to publish.  I'm a computer science major my main interests at the moment are Linux, Interpreters, Operating Systems and databases.  
+
+* Why emacs
+
+Emacs is a GUI application under the GNU license.  Its my absolute favorite application.  I pretty much do everything on it.  I program on it, write documents, check email, make websites, and navigate my computer.  I love the extensible and how easy it is to mold to your lickings.  Below is Emacs configuration if you want to take a look.  Alot if it is pulled from [[https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ][System Crafters]] (Add site link).   
+
 [[./README.org][init.el]]
-* Bio
-Hello my name is Malcolm Kahora.  I am a huge fan of Emacs above is my emacs configuration
+* Projects
+
+These are my major personal projects so far.  Their both written in Java using the [[https://libgdx.com/][Libgdx]] framework.  They run on html5 through gwt which converts java script from java.  
+
+** Wii Tanks Clone
+
+As a child I played alto of Wii tanks with my cousin so I anted to make my own version.  Alot of the creative is from my college dining hall.  The food their atrocious and I wanted to make game satirizing it.
+
+
+
+[[../Path/index.html][game]]
+** PathFinding
+
+This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
+
+[[../PathFinding/index.html][TCNJ Mapping]]
+
 * Tutorials
+
+I wrote this tutorial for using a assembler in my computer architecture class.
+
 ** Installing Mano Simulator on Windows/Linux
 [[./mano_instructions.org][Mano Sim]]
 
 
-* Projects
-** Java
-Heres a game I have been working on in java
 * Github
 Heres my [[https://github.com/cerealman23][github]]
-* Manos-Sim
-[[./install_mano.org][Linux (Ubuntu 20.04)]]
-* Data Base of Notes
+
+* TODO Data Base of Notes
 "I want to add my org roam files here"
 [[./RoamNotes/20210831121049-classes.org][org-roam]]
-* Resume
-* Favorite Music
-* Links
+
+* TODO Links
 [[https://www.instagram.com/malcolmkahora/][Instagram]]
 
