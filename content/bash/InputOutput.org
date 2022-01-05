@@ -1,0 +1,91 @@
+
+* IO
+
+Theres a lot of flexibility in bash input output making it fairly complex.
+
+** Input
+
+- Command line arguments.  
+- Enviroment variables
+- Files
+- Anything else a File Descriptor can point to (pipes, terminals, sockets, etc).
+
+  
+** Output
+Anything the program produces or writes is output.
+- Files
+- Anything the file descriptor can point to.
+- Command line arguments
+- Environment variables passed to other programs
+
+  
+** Command line arguments
+
+*** Positional Parameters
+
+The first positional parameter is $1 then $2 and so on after the 9th you must use curly braces ${10}, and ${11}.  This is rare in practice and there are better ways to do this.
+
+To refer to the entire set you can use "$@".  The bould quotes are *extremely important*.  If you do not each positional parameter will suffer from word splitting and globing.  The double quotes tell the system to preserve each parameter as a word.  When using the shift command it eliminates the previous positional argument.  This mean the second argument becomes $1.
+
+** The environment
+
+Environment variables work much like bash variables only they already exist when a script is just started up.  Most if not all environment variables are capitalized this way as long as you use one lower case letter you never have to worry about a collision.  The users locale is where you can set a specific users environment values in a dotfile and every program the runs will use those specific environment variables.
+
+When running a bash script you have the option of specifying a temporary environment change which only affects the duration of the command.
+
+Below is an example
+
+#+begin_src shell
+
+ls /tpm
+
+LANG=C ls /tpm
+
+
+#+end_src
+
+#+RESULTS:
+You can easily use environment variables.
+
+#+begin_src shell :results table
+
+#This runs xterm top if display is set otherwise it runs a diffren program
+
+  if [[ $DISPLAY ]]; then
+      xterm -e top
+  else
+      top
+  fi
+
+#+end_src
+
+#+RESULTS:
+| 172.31.192.1:0.0 |
+
+** TODO child process
+
+#+begin_src shell
+
+export MYVAR=something
+
+#+end_src
+
+** File Redirection
+
+#+begin_src shell
+
+  echo "It twas a dark and stormy night" > file
+
+  cat file
+
+  rm file
+
+
+
+
+#+end_src
+
+#+RESULTS:
+: It twas a dark and stormy night
+
+the > is an output redirection character.  This changes the output of the echo command to instead of going to the terminal goes to the file.  The bahvior is it will overide anythings 

@@ -1,0 +1,82 @@
+* Arrays
+
+Heres how to make an array
+
+#+begin_src shell
+
+
+  classes=("Math" "English" "History" "$JAVAHOME")
+
+declare -p classes
+
+#+end_src
+
+#+RESULTS:
+: Math" [1]="English" [2]="History" [3]="
+
+Here's how to assign the array to multiple indices.
+
+#+begin_src shell
+
+# This is a sparse array
+
+        names=([0]="Bob" [1]="Peter" [20]="$USER" [21]="Big Bad John")
+
+      #or you could do this
+
+    names[0]="Bob"
+
+  declare -p names
+
+#+end_src
+
+#+RESULTS:
+: Bob" [1]="Peter" [20]="malcolm2" [21]="Big Bad John
+
+You can file an array with files with teh follwing
+
+#+begin_src shell
+
+    orgfiles=(~/*.org)
+
+declare -p orgfiles
+
+  
+
+#+end_src
+
+#+RESULTS:
+: /home/malcolm2/*.org
+
+* Semi advanced concepts ahead
+
+Bash is written in c in c an array ends with a null byte.  Bash inherits this behavior.  Data streams can contain NUL bytes which are output from a data stream.  FIle name and most human readlable thinsg can not contain NUL bytes.
+
+#+begin_src shell
+
+
+files=()
+while read -r -d ''; do
+    files+=("$REPLY")
+done < <(find /foo -print0)
+
+#+end_src
+
+Above is the best way to read a commands output.  Heres why
+
+- First line is an empty array called files.
+- the while loop uses -d where after the -d that's the delimiter, in this case it interprets the empty string as a NUL byte (\0).  This means we nread up to a null byte.  The -r makes the program not tead '\' specially.
+- Once were at a null byte what we read is stored in reply and we append it to the files array. thats done with the +=() syntax.
+
+** Heres how to print an array
+
+
+#+begin_src shell
+
+declare -p myfiles
+declare -a myfiles='([0]="/home/wooledg/.bashrc" [1]="billing codes.xlsx" [2]="hello.c")'
+
+#+end_src
+
+#+RESULTS:
+

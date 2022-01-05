@@ -1,0 +1,301 @@
+* Arrays
+
+Heres how to make an array
+
+#+begin_src shell
+
+
+  classes=("Math" "English" "History" "$JAVAHOME")
+
+declare -p classes
+
+#+end_src
+
+#+RESULTS:
+: Math" [1]="English" [2]="History" [3]="
+
+Here's how to assign the array to multiple indices.
+
+#+begin_src shell
+
+# This is a sparse array
+
+        names=([0]="Bob" [1]="Peter" [20]="$USER" [21]="Big Bad John")
+
+      #or you could do this
+
+    names[0]="Bob"
+
+  declare -p names
+
+#+end_src
+
+#+RESULTS:
+: Bob" [1]="Peter" [20]="malcolm2" [21]="Big Bad John
+
+You can file an array with files with teh follwing
+
+#+begin_src shell
+
+    orgfiles=(~/*.org)
+
+declare -p orgfiles
+
+  
+
+#+end_src
+
+#+RESULTS:
+: /home/malcolm2/*.org
+
+* Semi advanced concepts ahead
+
+Bash is written in c in c an array ends with a null byte.  Bash inherits this behavior.  Data streams can contain NUL bytes which are output from a data stream.  FIle name and most human readlable thinsg can not contain NUL bytes.
+
+#+begin_src shell
+
+
+files=()
+while read -r -d ''; do
+    files+=("$REPLY")
+done < <(find /foo -print0)
+
+#+end_src
+
+Above is the best way to read a commands output.  Heres why
+
+- First line is an empty array called files.
+- the while loop uses -d where after the -d that's the delimiter, in this case it interprets the empty string as a NUL byte (\0).  This means we nread up to a null byte.  The -r makes the program not tead '\' specially.
+- Once were at a null byte what we read is stored in reply and we append it to the files array. thats done with the +=() syntax.
+
+** Heres how to print an array
+
+declare -a declares an numeric array
+
+#+begin_src shell :results output
+
+    
+      declare -a myfiles='([0]="/home/wooledg/.bashrc" [1]="billing codes.xlsx" [2]="hello.c")'
+  declare -p myfiles
+
+    myFiles[3]='"Hi"'
+
+    echo ${myfiles[2]}
+
+  echo ${myfiles[@]}
+
+#+end_src
+
+#+RESULTS:
+: declare -a myfiles=([0]="/home/wooledg/.bashrc" [1]="billing codes.xlsx" [2]="hello.c")
+: hello.c
+: /home/wooledg/.bashrc billing codes.xlsx hello.c
+
+
+The @ Sybil expands the array and splits theme each up into one word.  Very useful.
+
+#+begin_src shell
+
+    mkdir backups && echo "We made a backup directory"
+
+  for file in "${myfiles[@]}"; do
+      cp file ./backups/
+    done
+
+
+#+end_src
+
+#+RESULTS:
+: We made a backup directory
+
+It doesnt have to be in a for loop
+
+#+begin_src shell
+
+  myBackups=("Projects.zip" "Labs.zip" "Wowzers.zip")
+
+cp "${myBackups[@]}" ~/delete/
+
+#+end_src
+To convert an array to a single string one can use this Syntax.
+
+#+begin_src shell
+
+names=("Bob" "Peter" "$USER" "Big Bad John")
+echo "Today's contestants are: ${names[*]}"
+
+
+#+end_src
+
+#+RESULTS:
+: Today's contestants are: Bob Peter malcolm2 Big Bad John
+You can use IFS with bash (Internal field separator).
+
+#+begin_src shell :results output
+
+names=("Bob" "Peter" "$USER" "Big Bad John")
+( IFS=,; echo "Today's contestants are: ${names[*]}" )
+
+
+#+end_src
+
+#+RESULTS:
+: Today's contestants are: Bob,Peter,malcolm2,Big Bad John
+
+The parentheses create subshell.  This is useful for not changing IFS in the main shell just in the parens.
+
+To get the number of elemnts in an array use this trick.
+
+#+begin_src shell
+
+  array=(a b c d e f)
+echo ${#array[@]}
+
+#+end_src
+
+#+RESULTS:
+: 6
+To exapnd into a list of indicies we sue this syntax.
+
+#+begin_src shell
+
+  array=(wow my name is buddy whats yours)
+
+echo ${!array[@]}
+
+#+end_src
+
+#+RESULTS:
+: 0 1 2 3 4 5 6
+The [..] creates an artihmatic context which means you go do math without (())
+
+#+begin_src shell
+
+
+  a=(a b c d e f g h i j k)
+for ((i=0; i<${#a[@]}; i+=2)); do
+echo "${a[i]} and ${a[i+1]}"
+done
+
+#+end_src
+
+#+RESULTS:
+| a | and | b |
+| c | and | d |
+| e | and | f |
+| g | and | h |
+| i | and | j |
+| k | and |   |
+
+** Sparse arrays
+
+#+begin_src shell
+
+nums=(zero one two three four)
+nums[70]="seventy"
+unset 'nums[3]'
+declare -p nums
+declare -a nums='([0]="zero" [1]="one" [2]="two" [4]="four" [70]="seventy")'
+
+#+end_src
+
+#+RESULTS:
+: zero" [1]="one" [2]="two" [4]="four" [70]="seventy
+You can unset values and have indicies way out in left field and still be a valid array.  In unset we quote the 'nums[3]' so bash doesn't see it as a file glob.
+
+Also using ${arrayname[@]} will remove all gaps in the array
+#+begin_src shell :results output
+
+      letters=(a b c d e [70]="f" g h i j k l)
+
+    declare -p letters
+
+  echo "${letters[@]}"
+
+    declare -p letters
+
+#+end_src
+
+#+RESULTS:
+: declare -a letters=([0]="a" [1]="b" [2]="c" [3]="d" [4]="e" [70]="f" [71]="g" [72]="h" [73]="i" [74]="j" [75]="k" [76]="l")
+: a b c d e f g h i j k l
+: declare -a letters=([0]="a" [1]="b" [2]="c" [3]="d" [4]="e" [70]="f" [71]="g" [72]="h" [73]="i" [74]="j" [75]="k" [76]="l")
+
+** Associative arrays
+
+These allow the indices of an array to be something other than indices.
+
+
+
+#+NAME: fullNames
+#+begin_src shell
+
+declare -A fullNames
+fullNames=( ["lhunath"]="Maarten Billemont" ["greycat"]="Greg Wooledge" ['malcolm2']="Malcolm Kahora" )
+echo "Current user is: $USER.  Full name: ${fullNames[$USER]}."
+
+
+#+end_src
+
+#+RESULTS:
+: Current user is: malcolm2.  Full name: Malcolm Kahora.
+
+We can also print easily
+
+#+begin_src shell
+
+   declare -A dict
+  dict[astro]="Foo Bar"
+  declare -p dict
+
+# Below is the same as above
+  declare -A dict='([astro]="Foo Bar")'
+
+#+end_src
+
+#+RESULTS:
+: Foo Bar
+
+Here's how you iterate over an associative array.
+
+#+begin_src shell :var fullNames=fullNames
+
+for user in "${!fullNames[@]}"
+do echo "User: $user, full name: ${fullNames[$user]}."; done
+
+
+
+#+end_src
+
+#+RESULTS:
+| User: 0 | full name: Current user is: malcolm2.  Full name: Malcolm Kahora.. |
+
+Some caveats of the above program are as follows.  The order of keys we get back form "${!array[@]}"  is unpredictable.  Associative arrays are not well suited for arrays that need to be in a particular order. Same with "{array[@]}"
+
+#+begin_src shell
+
+indexedArray=( "one" "two" )
+declare -A associativeArray=( ["foo"]="bar" ["alpha"]="omega" )
+index=0 key="foo"
+echo "${indexedArray[$index]}"
+one
+echo "${indexedArray[index]}"
+one
+echo "${indexedArray[index + 1]}"
+two
+echo "${associativeArray[$key]}"
+bar
+echo "${associativeArray[key]}"
+
+echo "${associativeArray[key + 1]}"
+
+#+end_src
+
+#+RESULTS:
+| one |
+| one |
+| two |
+| bar |
+|     |
+|     |
+Everything fails except the $key

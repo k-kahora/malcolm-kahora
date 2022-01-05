@@ -1,0 +1,612 @@
+
+
+To enter scripts into the bash shell add a \ at the end of the command and type in your commands followed by a done when you have finished.
+
+
+
+* Failure
+
+0 denotes success any other number denotes failure
+the ? keyword echos that fail status of the last run command
+
+#+begin_src shell
+
+  ping bruh
+
+echo $?
+
+#+end_src
+
+#+RESULTS:
+: 2
+
+Exit status of 2
+
+good practice is to always return non zero exit code when something unexpected happens
+
+Use the exit keyword
+
+#+begin_src shell
+
+ # This will terminate the program
+
+  rm fileDoesNotExists.txt || {echo 'File does not exist' >&2; exit 1; }
+
+#+end_src
+
+#+RESULTS:
+
+* && and II
+
+This will make the dir c if it succeeds (exit code 0) then it will change into the c directory.
+
+#+begin_src shell
+
+mkdir c && cd d
+
+#+end_src
+
+This is the opposite and will execute of the first fails
+
+#+begin_src shell
+
+
+mkdir c && cd c || echo "could not move into c"
+
+#+end_src
+
+* Grouping withe grep
+
+putting a ! inferno of a command negates its exit status.
+
+#+begin_src shell
+
+    file="goodword"
+
+      grep -q goodword "$file"
+    !grep -q badword "$file"
+
+  echo $?
+
+#+end_src
+
+#+RESULTS:
+: 2
+
+Grouping to read a file
+
+#+begin_src shell :eval no
+
+
+{
+    read firstLine
+    read secondLine
+    while read otherLine; do
+        something
+    done
+} < file
+
+#+end_src
+
+File is fed into teh group and the group will run a bunch of commands when its finished it will close the file.
+
+* Conditional blocks
+
+#+begin_src shell
+
+if true
+> then echo "Its true"
+> else echo "Its not true"
+> fi
+Its true
+
+#+end_src
+
+Here's different styles of writing commands.
+
+#+begin_src shell
+
+
+  if COMMANDS
+  then OTHER COMMANDS
+  fi
+
+  if COMMANDS
+  then
+      OTHER COMMANDS
+  fi
+
+# My favorite
+
+  if COMMANDS; then
+      OTHER COMMANDS
+  fi
+
+#+end_src
+
+
+Single brace if statement
+
+#+begin_src shell
+
+if [ a = b ]
+  then echo "a is the same as b"
+  else echo "a is not the same as b"
+  fi
+  
+
+#+end_src
+
+#+RESULTS:
+: a is not the same as b
+
+You don't need an if to run a '[' command.
+
+#+begin_src shell
+
+
+    name1="Malcolm Kahora"; name2="Betty White"
+
+  [ $name1 = $name2 ]
+
+#+end_src
+
+#+RESULTS:
+To many arguments error.  We need to put quotes around our parameter expansion.
+
+#+begin_src shell
+
+     name1="Malcolm Kahora"; name2="Betty White"
+
+   if [ "$name1" = "$name2f" ]; then
+    echo "They match"
+  else echo "They dont match"
+     fi
+
+
+#+end_src
+
+#+RESULTS:
+: They dont match
+
+
+[[ was introduced by Korn shell and it has cool features.  It can do pattern matching!
+
+#+begin_src shell
+
+[[ $filename = *.png ]] && echo "$filename looks like a png file"
+
+
+#+end_src
+
+#+RESULTS:
+
+
+We don't need quotes for [[ as its expands the argument its self as one bash command.
+
+
+Hers a good exampleo of pattern matching
+
+make sure name is compared before foo for some reason.  I'm not sure why that matters
+
+
+
+#+begin_src shell :results output
+
+
+  foo=[a-z]* name=skywalker
+  [[ $name = $foo ]] && echo "The pattern matches $foo"
+
+[[ $name = "$foo" ]] || echo "The string $name does nto equal the pattern $foo"
+
+#+end_src
+
+#+RESULTS:
+: The pattern matches [a-z]*
+: The string skywalker does nto equal the pattern [a-z]*
+
+Separater the quotes compare the name to the string [a-z]* not the pattern.
+
+#+RESULTS:
+#+begin_src shell :results output
+
+foo=[a-z]* name=lhunath
+[[ $name = $foo   ]] && echo "Name $name matches pattern $foo"
+
+[[ $name = "$foo" ]] || echo "Name $name is not equal to the string $foo"
+
+
+#+end_src
+
+#+RESULTS:
+: Name lhunath matches pattern [a-z]*
+: Name lhunath is not equal to the string [a-z]*
+
+
+Using the < operator
+
+#+begin_src shell
+
+[ apple < banna ]
+
+#+end_src
+
+This will look for a file called banana in the current directory.  Its wont compare the strings alphabetical.
+
+#+begin_src shell
+
+[ apple \< banna ]
+
+#+end_src
+
+This will compare the apple and banana alphabetically by escaping the symbol.
+
+#+begin_src shell
+
+
+[[ apple < banna ]]
+
+#+end_src
+
+This works a s expected to.
+
+| Description              | String comparison | Integer comparison |
+| Less than                | <                 | -lt                |
+| Greater than             | >                 | -gt                |
+| Equal                    | =                 | -eq                |
+| Nor equal                | !                 | -ne                |
+| Less than or equal to    |                   | -le                |
+| Greater than or equal to |                   | -ge                |
+
+
+Here are tests that can be done with [
+
++ -e FILE: True if file exists.
+
++ -f FILE: True if file is a regular file.
+
++ -d FILE: True if file is a directory.
+
++ -h FILE: True if file is a symbolic link.
+
++ -p PIPE: True if pipe exists.
+
++ -r FILE: True if file is readable by you.
+
++ -s FILE: True if file exists and is not empty.
+
++ -t FD : True if FD is opened on a terminal.
+
++ -w FILE: True if the file is writable by you.
+
++ -x FILE: True if the file is executable by you.
+
++ -O FILE: True if the file is effectively owned by you.
+
++ -G FILE: True if the file is effectively owned by your group.
+
++ FILE -nt FILE: True if the first file is newer than the second.
+
++ FILE -ot FILE: True if the first file is older than the second.
+
++ -z STRING: True if the string is empty (its length is zero).
+
++ -n STRING: True if the string is not empty (its length is not zero).
+
+  - String operators:
+  - STRING = STRING: True if the first string is identical to the second.
+
+  - STRING != STRING: True if the first string is not identical to the second.
+
+  - STRING < STRING: True if the first string sorts before the second.
+
+  - STRING > STRING: True if the first string sorts after the second.
+
++ ! EXPR: Inverts the result of the expression (logical NOT).
+
++ Numeric operators:
+  - INT -eq INT: True if both integers are identical.
+
+  - INT -ne INT: True if the integers are not identical.
+
+  - INT -lt INT: True if the first integer is less than the second.
+
+  - INT -gt INT: True if the first integer is greater than the second.
+
+  - INT -le INT: True if the first integer is less than or equal to the second.
+
+  - INT -ge INT: True if the first integer is greater than or equal to the second.
+
++ Additional tests supported only by [[:
+
+  - STRING = (or ==) PATTERN: Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.
+
+  - STRING != PATTERN: Not string comparison like with [ (or test), but pattern matching is performed. True if the string does not match the glob pattern.
+
+  - STRING =~ REGEX: True if the string matches the regex pattern.
+
+  - ( EXPR ): Parentheses can be used to change the evaluation precedence.
+
+  - EXPR && EXPR: Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.
+
+  - EXPR || EXPR: Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true.
+
++ Tests exclusive to [ (and test):
+
+  + EXPR -a EXPR: True if both expressions are true (logical AND).
+
+  + EXPR -o EXPR: True if either expression is true (logical OR).
+
+    These are the same expressions below
+
+#+begin_src shell
+
+
+  test -e file.txt
+[ -e file.txt ]
+
+#+end_src
+
+** Good practice
+
+Always use [[ in a bash script and [ in a shell script.
+
+* For Loops and conditional loops
+
+** while command
+
+Useful when we dont know how many times we have to loop
+
+#+begin_src shell :eval no
+
+
+  while true
+  do echo "Infinite loop"
+  done
+
+#+end_src
+
+#+begin_src shell :eval no
+
+
+  while ! ping google.com; do
+    echo "Pinging google currently"
+  sleep 1
+done
+
+#+end_src
+
+Classic while loop example
+
+#+begin_src shell :results output
+
+
+      (( i=9 )); while (( i > 0 )); do
+                 echo "We are at $i"
+               (( i=i-1 ))
+             done
+
+    for (( i = 9 ; i >= 0 ; i-- )); do
+      echo "We are at $i pizzas"
+    done;
+
+  for i in {0..9}; do
+    echo "We are at $i pickels"
+  done
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+We are at 9
+We are at 8
+We are at 7
+We are at 6
+We are at 5
+We are at 4
+We are at 3
+We are at 2
+We are at 1
+We are at 9 pizzas
+We are at 8 pizzas
+We are at 7 pizzas
+We are at 6 pizzas
+We are at 5 pizzas
+We are at 4 pizzas
+We are at 3 pizzas
+We are at 2 pizzas
+We are at 1 pizzas
+We are at 0 pizzas
+We are at 0 pickels
+We are at 1 pickels
+We are at 2 pickels
+We are at 3 pickels
+We are at 4 pickels
+We are at 5 pickels
+We are at 6 pickels
+We are at 7 pickels
+We are at 8 pickels
+We are at 9 pickels
+#+end_example
+
+Heres a simple for loop thats kinda confusing
+
+#+begin_src shell
+
+  for i in 10 9 8 7 6 5 4 3 2 1; do
+    echo "Currently at $i"
+
+ done
+
+#+end_src
+
+#+RESULTS:
+| Currently | at | 10 |
+| Currently | at |  9 |
+| Currently | at |  8 |
+| Currently | at |  7 |
+| Currently | at |  6 |
+| Currently | at |  5 |
+| Currently | at |  4 |
+| Currently | at |  3 |
+| Currently | at |  2 |
+| Currently | at |  1 |
+
+globs and for loops
+
+#+begin_src shell
+
+
+  for file in *.txt; do
+    echo "The file name is $file"
+  done
+
+#+end_src
+
+#+RESULTS:
+: The file name is 1.txt
+
+Heres a bad example
+
+#+begin_src shell
+
+  for file in "$(ls *.txt)"; do
+    echo "$file"
+  done
+
+#+end_src
+
+#+RESULTS:
+: 1.txt
+
+this will work if you have no spaces in your file name otherwise the loop gets confused.  This is because it will convert all txt files into one big string "file1.txt file2.txt file3.txt"
+
+#+begin_src shell
+
+while read -p $'The sweet machine.\nInsert 20c and enter your name: ' name
+do echo "The machine spits out three lollipops at $name."
+done
+
+#+end_src
+
+#+RESULTS:
+
+This is an infinite loop that will take user input.
+
+#+begin_src shell
+
+  while sleep 3; do
+    echo "Sleeping Zzzzzz"
+  done
+
+#+end_src
+
+Every 3 seconds this loop will say wow.
+
+** until commands
+
+Until is rarely used can use while! instead.
+
+#+begin_src shell
+
+
+
+#+end_src
+
+** for /variable/ in /words/
+
+For loops use do and done which is similar to the then and fi in if statements.
+This for loops is good for looping through a list of things
+
+** for (( /expression/; /expression/; /expression/ ))
+
+** Choices cases and select
+
+#+begin_src shell :results output
+
+    shopt -s extglob
+
+  echo "$LANG"
+
+    if [[ $LANG = en* ]]; then
+        echo 'Hello!'
+    elif [[ $LANG = fr* ]]; then
+        echo 'Salut!'
+    elif [[ $LANG = *UTF* ]]; then
+      echo "Hello friend"
+    elif [[ $LANG = de* ]]; then
+        echo 'Guten Tag!'
+    elif [[ $LANG = nl* ]]; then
+        echo 'Hallo!'
+    elif [[ $LANG = it* ]]; then
+        echo 'Ciao!'
+    elif [[ $LANG = es* ]]; then
+        echo 'Hola!'
+    elif [[ $LANG = @(C|POSIX) ]]; then
+        echo 'hello world'
+    else
+        echo 'I do not speak your language.'
+    fi
+
+#+end_src
+
+#+RESULTS:
+: C.UTF-8
+: Hello friend
+
+Instead of these redundant if statements we can use case statements instead.
+
+
+#+begin_src shell
+
+  case $LANG in
+      en*) echo 'Hello!' ;;
+      fr*) echo 'Salut!' ;;
+      de*) echo 'Guten Tag!' ;;
+      nl*) echo 'Hallo!' ;;
+      it*) echo 'Ciao!' ;;
+      es*) echo 'Hola!' ;;
+    *UTF*) echo "Hello freind" ;;
+      C|POSIX) echo 'hello world' ;;
+      *)   echo 'I do not speak your language.' ;;
+  esac
+
+#+end_src
+
+#+RESULTS:
+: Hello freind
+Two semi colons dictate they end of a block of code.  Using ;& does a fall through instead of a break.  Using a * matches any case not originally detected much like a default.
+
+The ;;& operator at the end The next matching pattern will be matched instead of the code.
+
+** Selects
+
+#+begin_src shell
+
+echo "Which of these does not belong in the group?"; \
+select choice in Apples Pears Crisps Lemons Kiwis; do
+if [[ $choice = Crisps ]]
+then echo "Correct!  Crisps are not fruit."; break; fi
+echo "Errr... no.  Try again."
+done
+
+#+end_src
+
+Selects will keep looping as long as the break statement is not executed.
+
+#+begin_src shell
+
+
+quit=
+while test -z "$quit"; do
+    echo "...."
+    read -p "-> " response
+    case $response in
+        2) echo 'See you later!'; quit=y ;;
+        *) echo "Not valid";;
+    esac
+done
+
+
+#+end_src
+

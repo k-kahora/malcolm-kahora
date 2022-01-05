@@ -1,0 +1,32 @@
+* Glob patterns
+** Meta Characters
+
+*
+?
+[...]
+** Extended globs (Similar to regx)
+
+Turn on extended globs with
+
+
+#+begin_src shell
+
+shopt -s extglob
+
+#+end_src
+** Reg ex
+
+Can be used for pattern matching
+
+- *Concatenation:* Two reg ex can be written next to each other and and a match willl happen if teh string matches both parts 
+- *Union* If eitehr expression matches much like or.
+- *Closure* The xpression may be repeated like kleen closure.
+
+
+ab matches the string ab
+a|b matches teh string a or b but not ab
+a* matches any number of repeated a from 0 and on
+
+
+ASCII ordering in grep
+

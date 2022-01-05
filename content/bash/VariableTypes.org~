@@ -1,0 +1,123 @@
+
+* Commands
+
+commands are separated by white space
+
+aliases are useful for interactive shells but cant be used with scripts
+
+for example
+
+#+begin_src shell
+
+alias mkdirr="mkdir del && cd del"
+
+#+end_src
+
+#+RESULTS:
+
+Obviously aliases are limited use functions for more complex aspects
+
+#+begin_src shell :results output
+
+[[ a > b ]]
+
+#+end_src
+
+#+RESULTS:
+
+* Executable (Important)
+
+
+When a command is called such as cat or man without a file path the terminal looks at the path variable it looks at those directories from left to right
+
+If the script or function is not in path the directory has to be specified such as ./script.sh for a script in the current directory or /mnt/c/Users//brad//script.sh 
+
+* Built in
+
+SOme commands are built into bash such as [ a < b ] and dint need external files.
+
+* Scripts
+
+
+Heres a shebang or hashang or intepretrr directive
+
+#+begin_src shell
+
+#!/bin/bash
+
+#+end_src
+
+Dont s=give scripts the .sh extension it is completely useless
+
+
+How do we call a script?
+
+either
+
+#+begin_src shell
+
+bash script
+
+#+end_src
+
+With the above method you don't need a shebang as were calling bash directly
+
+other wise you have to modify the mode of the file
+
+
+#+begin_src shell :eval no
+
+  chmod +x script #makes it executable
+./script
+
+#+end_src
+
+** Put scripts in a personal directory not PATH
+
+#+begin_src shell :eval no
+
+  mkdir -p "$HOME/bin"
+ echo 'PATH="$HOME/bin:$PATH"' >> "$HOME/.bashrc" # This line takes the echo out put and inserts it into the bash rc file at the bottom
+ source "$HOME/.bashrc" # This executes commands in a file in the current shell (Straight from the help page)
+
+#+end_src
+
+
+In short this creates a directory in your personal home.  Adds the directory to the path variable which is set in your personal bashrc and the final comas just reruns your bashrc.
+
+.bashrc is basically the init file for bash
+
+Heres good formatting at the top of all your scripts
+
+#+begin_src shell
+
+   #!/usr/bin/env bash
+   # scriptname - a short explanation of the scripts purpose.
+   #
+   # Copyright (C) <date> <name>...
+   #
+   # scriptname [option] [argument] ...
+
+#+end_src
+
+** Special Characters
+| Charecters | What is does                                                                                                                                         |   |
+| " "        | White space separates commands                                                                                                                       |   |
+| \$         | Expands the varibles                                                                                                                                 |   |
+| ''         | Single quotes treat everything inside them as pure text no other brash special characters will work                                                  |   |
+| ""         | Double quotes treat the contents as txt but bash special charecters may also work                                                                    |   |
+| \          | Ignores the next special charecter                                                                                                                   |   |
+| \#         | Comment                                                                                                                                              |   |
+| \=         | Assignment                                                                                                                                           |   |
+| [[]]       | Tests whether the internal is true or false                                                                                                          |   |
+| \!         | Negate                                                                                                                                               |   |
+| >, >>, <   | Redirection redirects a commands input or output                                                                                                     |   |
+| \          | Pipe                                                                                                                                                 |   |
+| ;          | Separates commands without the need for white space, can be on the same line                                                                         |   |
+| {}         | Commands in curly brace are treated as one command                                                                                                   |   |
+| ()         | Commands in these parens are run as a sub process, their run in a sub shell, if the commands changes something it has no effect on the current shell |   |
+| (())       | Arithmetic expression inside +,-,* and / can be used for math, even can be used for var assignment                                                   |   |
+| $(())      | Same as above but it expands the value into the current location                                                                                     |   |
+| *,?        | File globing                                                                                                                                         |   |
+| ~          | Home directory                                                                                                                                       |   |
+| &          | Background, runs the command in the background does not wait for it to complete                                                                      |   |

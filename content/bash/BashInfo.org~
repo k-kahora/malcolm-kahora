@@ -1,0 +1,250 @@
+
+* Bash Scripting with parameters and variables
+
+Have the shebang at the top
+
+#+begin_src shell
+
+#!/bin/bash
+
+#+end_src
+
+** Variables
+
+#+begin_src shell
+
+  NAME="BRAD"
+
+  echo "My Name is ${NAME}"
+
+
+#+end_src
+
+#+RESULTS:
+: My Name is BRAD
+
+** User input
+
+#+begin_src shell
+
+
+  read -p "Enter your name: " USER_NAME
+echo "$USER_NAME"
+
+#+end_src
+
+#+RESULTS:
+
+** Wild cards and patterns
+
+| Patterns | What it does                   |
+| *        | Zero or more characters        |
+| ?        | Matches any one charecters     |
+| [...]    | Match any character in the set |
+| [^..]    | Any chars not in the brackets  |
+| [a-f]    | Any charecters in the range    |
+| \        | Escape character  Eg. *\?  (Matches strings ending in a ?) |
+
+
+
+Here's an example of a script that will list all jpg in current directory
+
+#+begin_src shell
+for file in *.JPG *.jpeg; do echo "$file"
+done
+
+#+end_src
+
+Below its modified to replace the extension to png
+
+
+#+begin_src shell
+
+for file in *.JPG *.jpeg; do mv -- "$file" "${file%.*}.png"
+done
+
+
+#+end_src
+
+
+
+This is done using parameter editing
+
+
+Here I just echo the string were going to use
+
+#+NAME: var
+#+begin_src shell 
+
+    VAR="Hello.my.name.is.malcolm.what.is.your.name"
+  echo $VAR
+
+#+end_src
+
+#+RESULTS: var
+: Hello.my.name.is.malcolm.what.is.your.name
+
+This patter removes the shortest pattern from the start of the string.
+#+begin_src shell :var VAR=var
+ echo "${VAR#*.}"
+#+end_src
+
+#+RESULTS:
+: my.name.is.malcolm
+
+This starts from the begging and deletes the longest instance of the pattern
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR##*.}"
+
+#+end_src
+
+#+RESULTS:
+: malcolm
+
+This deletes the first instance from the back of the string because its the smallest from the end of the string
+
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR%.*}" 
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.is
+
+The longest instance from the back of the string
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR%%.*}"
+
+#+end_src
+
+#+RESULTS:
+: Hello
+
+This uses the format ${parameter/patter/string}  where the first instance of the patter is replaced with the string. Null when string is empty. 
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR/malcolm/brad}"
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.is.brad
+
+Same as above but every instance of name is replaced ${paramete//pattern/stringr}
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR//name/adress}"
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.adress.is.malcolm.what.is.your.adress
+
+Adds a prefix to the beginning of the string
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR/#/prefix}"
+
+#+end_src
+
+#+RESULTS:
+: prefixHello.my.name.is.malcolm.what.is.your.name
+
+Adds a prefix to the end of the string
+
+#+begin_src shell :var VAR=var
+
+echo "${VAR/%/prefix}"
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.is.malcolm.what.is.your.nameprefix
+
+
+If the parameter is null or not yet set you can us a default value like so
+
+#+begin_src shell :results output :var VAR=var
+
+  echo "${VAR:=its null}"
+  echo "${VAR1:=its null}"
+
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.is.malcolm.what.is.your.name
+: its null
+
+If its null assign the default value to the parameter
+
+#+begin_src shell  :results output :var VAR=var
+
+    echo "${VAR:=hello}"
+    echo "${VAR1:=hello}"
+    echo "$VAR1"
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.is.malcolm.what.is.your.name
+: hello
+: hello
+
+
+If the parameter is null or not yet set do nothing.  Otherwise subsitute the value to the passed string
+
+#+begin_src shell :results output :var VAR=var
+
+    echo "${VAR:+newValue}"
+    echo "${VAR1:+itsnull}"
+    echo "$VAR"
+
+#+end_src
+
+#+RESULTS:
+: newValue
+: 
+: Hello.my.name.is.malcolm.what.is.your.name
+
+
+The values length in charecters
+
+#+begin_src shell :results output :var VAR=var
+
+  echo "${#VAR}"
+  
+
+
+#+end_src
+
+#+RESULTS:
+: 42
+
+
+
+This function can access a part of a string.  ${parameter:offset:length}  if no length than go to the end.  if offset is negative(with parens) go backwards  
+
+#+begin_src shell :results output :var VAR=var
+
+    echo "${VAR::14}"
+    echo "${VAR:14:3}"
+    echo "${VAR:17:8}"
+    echo "${VAR:(-17)}"
+
+#+end_src
+
+#+RESULTS:
+: Hello.my.name.
+: is.
+: malcolm.
+: what.is.your.name

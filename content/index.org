@@ -3,6 +3,8 @@
 #+EMAIL: Mango22MJK@gmail.com
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+This website is a WIP.  I will be doing routine updates in order to keep my website up to date.
+
 * Welcome
 
 Hello welcome to my site.  My name is Malcolm Kahora.  This site is built using emacs org mode and github pages to publish.  I'm a computer science major my main interests at the moment are Linux, Interpreters, Operating Systems and databases.  
@@ -20,9 +22,7 @@ These are my major personal projects so far.  Their both written in Java using t
 
 As a child I played alto of Wii tanks with my cousin so I anted to make my own version.  Alot of the creative is from my college dining hall.  The food their atrocious and I wanted to make game satirizing it.
 
-
-
-[[../Path/index.html][game]]
+[[../Pirate/index.html][game]]
 ** PathFinding
 
 This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
