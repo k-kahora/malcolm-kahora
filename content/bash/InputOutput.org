@@ -72,13 +72,20 @@ export MYVAR=something
 
 ** File Redirection
 
+These are the three file descriptors.
+
+- Standard input /stdin/: FIle descriptor 0
+- Standard output /stdout: FIle descriptor 1/
+- Standard error /stderr/: FIle descriptor 2
+
+
 #+begin_src shell
 
   echo "It twas a dark and stormy night" > file
 
   cat file
 
-  rm file
+
 
 
 
@@ -88,4 +95,467 @@ export MYVAR=something
 #+RESULTS:
 : It twas a dark and stormy night
 
-the > is an output redirection character.  This changes the output of the echo command to instead of going to the terminal goes to the file.  The bahvior is it will overide anythings 
+the > is an output redirection character.  This changes the output of the echo command to instead of going to the terminal goes to the file.  The behavior occurs before echo is executed so bash does not check to see if file exists. It just opens the file and if there was a previous file it would be replaced with the new contents.  However you can change this behavior with shell options.  This is all based on the scripts stdout location.
+
+*Warning* do not use cat when you just want to read a files contents.  Cat is sued to con *cat* anate multiple files.  Use redirection instead of pipes and cats.  Using cat will cause extra processes to occur.
+
+using cat with no files will read from stdin much like the read command.
+
+#+begin_src shell :eval no
+
+      cat
+    test
+  test
+
+
+#+end_src
+The stdin is from the terminal and its output to the terminal so anything you enter is output twice.
+
+This happens when the terminal is in canonical mode.  This shows you what you type and allows you to hit the backspace key.
+
+C^d sends the terminal the end of the file character.
+
+You can also use file redirection for input.
+
+#+begin_src shell
+
+cat < file
+
+#+end_src
+
+#+RESULTS:
+: It twas a dark and stormy night
+
+In this example the < modifies cats stdin to be the file rather than than the terminal input.  
+#+begin_src shell
+
+
+  for homedir in /home/*
+  do rm "$homedir/secret"
+  done 2> errors
+
+cat errors
+
+#+end_src
+
+#+RESULTS:
+: rm: cannot remove '/home/malcolm2/secret': No such file or directory
+
+Here the for loop immediately opens the error file and all errors are fed into it and it closes when the for loop is done.
+
+*** The systems black hole
+
+the /dev/null/ directory is a black hole thats because its not a normal file its a virtual device some refer to it as the bit bucket.
+
+#+begin_src shell
+
+  for homdir in /home/*; do
+    rm "$homedir/secret"
+  done 2> /dev/null
+
+#+end_src
+
+#+RESULTS:
+
+If you don't want to overide files with file redirection you can use two symbols to just append to the end of the file so instead of > you have >>
+
+#+begin_src shell :results output
+
+  for homedir in /home/*
+  do rm "$homedir/secret"
+  done 2>> errors
+
+cat errors
+
+#+end_src
+
+#+RESULTS:
+: rm: cannot remove '/home/malcolm2/secret': No such file or directory
+: rm: cannot remove '/home/malcolm2/secret': No such file or directory
+: rm: cannot remove '/home/malcolm2/secret': No such file or directory
+
+You dont need white space for file redirection.
+
+*** file description manipulation.
+
+#+begin_src shell
+
+
+  echo "I love diet coke" > file
+
+
+#+end_src
+
+#+RESULTS:
+
+
+Theors a tool called grep and its like duct tape.  It can be used in almost every project even if its a good idea or not.  Grep takes a search pattern as the first arg and maybe some other filenames as extra arguments.
+
+
+#+begin_src shell :results output
+
+  ls house/ 
+
+  grep -r socks house/
+
+
+
+#+end_src
+
+#+RESULTS:
+: closet
+: drawer
+: dustbin
+: sofa
+: house/drawer:socks dustbin
+
+Heres a more realistic example.
+
+#+begin_src shell
+
+grep "$HOSTNAME" /etc/*
+
+
+#+end_src
+
+#+RESULTS:
+Using grep in file descriptor manipulation.
+
+#+begin_src shell
+
+  grep diet file
+
+#+end_src
+
+#+RESULTS:
+: I love diet coke
+If we want to silence grep error messages this what we do.
+
+#+begin_src shell
+
+  grep coke file 'not a file'
+
+
+#+end_src
+
+#+RESULTS:
+To silince it we do this.
+
+#+begin_src shell
+
+  grep coke file 'not a file' > grep.log 2> grep.log 
+
+head grep.log
+
+#+end_src
+
+#+RESULTS:
+: grep: not a file: No such file or directory
+
+The above does not quite work.
+
+We can avoid this by duplicating file directions
+
+#+begin_src shell :results output
+
+  grep coke file 'not a file' > grep2.log 2>&1
+
+cat grep2.log
+
+#+end_src
+
+#+RESULTS:
+: file:I love diet coke
+: grep: not a file: No such file or directory
+
+File redirection are always read left to right.  First the stdout points to grep2.log the >&1 syntax duplicates the first file redirection.  This duplicate is then put into file redirection 2.
+
+This is what happens when you confuse the order.
+
+#+begin_src shell :results output
+
+    grep coke file 'not a file' 2>&1 > grep3.log
+
+cat grep3.log
+
+  
+
+#+end_src
+
+#+RESULTS:
+: grep: not a file: No such file or directory
+: file:I love diet coke
+
+*** Heredocs and here strings
+
+To write a small amount of datat sometimes a txt file is to much.  We can use heredocs and herestrings.
+
+#+begin_src shell
+
+ grep proud <<END
+ I am a proud sentence.
+ END
+
+
+#+end_src
+
+#+RESULTS:
+: I am a proud sentence.
+
+This is an example of a heredoc or (Here Document)
+
+We first set a word as a sentenial.  All words that follwo from the first instance of the sentenial to the end become the stdin for the command.  The second insatnce has to be a line of itself.
+
+Normally you can't indent them.  Any spaces will appear in the heredocs.
+
+#+begin_src shell :results output
+
+echo "Let's test abc:"
+if [[ abc = a* ]]; then
+    cat <<END
+        abc seems to start with an a!
+END
+fi
+
+#+end_src
+
+#+RESULTS:
+: Let's test abc:
+:         abc seems to start with an a!
+
+Above the white space is used.
+
+You can use <<-END instead of <<END to to remove any tab charecters at the beginning of each line.
+
+#+begin_src shell
+
+  cat <<-'XYZ'
+           My home directory is $HOME
+  XYZ
+
+
+#+end_src
+
+#+RESULTS:
+: My home directory is $HOME
+Because we quoted the first appearance the $HOME is not expanded
+
+#+begin_src shell
+
+cat <<XYZ
+My home directory is $HOME
+XYZ
+
+
+#+end_src
+
+#+RESULTS:
+: My home directory is /home/malcolm2
+Because it wasn't quoted we expand the parameter.  
+
+*** Herestring
+
+#+begin_src shell
+
+grep cats <<<"My cats name is twighlight"
+
+#+end_src
+
+#+RESULTS:
+: My cats name is twighlight
+
+stdin reads straight from the string after <<<
+
+#+begin_src shell
+
+grep proud <<<"$USER sits proudly on his throne in $HOSTNAME."
+
+#+end_src
+
+#+RESULTS:
+: malcolm2 sits proudly on his throne in DESKTOP-CT8CD1M.
+Useful for strings and built in parameters.
+
+herestrings are not portable to the borne shell.
+
+#+begin_src shell :results output
+
+ echo 'Wrap this silly sentence.' | fmt -t -w 20
+ fmt -t -w 20 <<< 'Wrap this silly sentence.'
+
+#+end_src
+
+#+RESULTS:
+: Wrap this silly
+:    sentence.
+: Wrap this silly
+:    sentence.
+
+#+begin_src shell
+
+cat <<EOF > file
+My home dir is $HOME
+EOF
+cat file
+
+
+#+end_src
+
+#+RESULTS:
+: My home dir is /home/malcolm2
+
+Here we take a heredoc and port it to a file.  
+
+** Pipes
+Pipes allow you to chain commands together
+
+the mkfifo command makes a special file called first in first out.  These are special files.  Fifos never really contain data.  If you read from a fifo you knly read datat as its coming in.  Below is a good example.
+
+
+#+begin_src shell
+
+
+ mkfifo myfifo; ls
+myfifo
+ grep bea myfifo &
+[1] 32635
+ echo "rat
+ cow
+ deer
+ bear
+ snake" > myfifo
+
+
+#+end_src
+
+#+RESULTS:
+| BashInfo.org       |
+| BashInfo.org~      |
+| InputOutput.org    |
+| InputOutput.org~   |
+| VariableTypes.org  |
+| VariableTypes.org~ |
+| arrays.org         |
+| arrays.org~        |
+| backups            |
+| condionals.org     |
+| condionals.org~    |
+| errors             |
+| file               |
+| globs.org          |
+| globs.org~         |
+| grep.log           |
+| grep2.log          |
+| grep3.log          |
+| house              |
+| myfifo             |
+| script.sh          |
+| script.sh~         |
+| bear               |
+
+first we make fifo called my fifo.  Then we search fro bea in myfifo file.  However we use the & operator which runs it in the background so we can continiue to type commands even if the command hasnt finished yet.  The cho command feed data to teh fifo and once its avible the grep command reads from the fifo.
+
+Pipes are a better alternative to fifo.
+
+#+begin_src shell
+
+echo "rat
+cow
+deer
+bear
+snake" | grep bea
+
+
+#+end_src
+
+#+RESULTS:
+: bear
+
+The former commands stdout is now connected to the next commands stdin.
+
+FIFO's are ofter called named pipes.  They accomplish the same thing as a pipe but through a file name.
+
+Important.  Pipes creat a subshell.  WHich means variables in which you modify will appear unmodified outside of the subshell.
+
+#+begin_src shell
+
+message=Test
+echo 'Salut, le monde!' | read message
+echo "The message is: $message"
+
+echo 'Salut, le monde!' | { read message; echo "The message is: $message"; }
+
+echo "The message is: $message"
+
+
+#+end_src
+
+#+RESULTS:
+| The | message | is: | Test   |    |        |
+| The | message | is: | Salut, | le | monde! |
+| The | message | is: | Test   |    |        |
+
+Here message is never modified its only ever modified in the third echo command because the echoing occurs in the sub process.
+
+** Misc Operators
+
+A distant cousin of pipes in the Process Substitution operator; the twoo forms are <(cmd) and >(cmd).
+
+the >() is rare and does the same as <() but in reverse.
+
+#+begin_src shell
+
+diff <(sort file1) <(sort file2)
+
+
+#+end_src
+
+#+RESULTS: 
+
+#+begin_src shell :results output
+        echo "Apple
+        Avacado
+        Bear
+        Category
+        Falcon
+        Paint" > .dictionary
+
+      head -n 1 .dictionary > temp1
+    tail -n 1 .dictionary > temp2
+
+  diff -y temp1 temp2
+
+rm temp?
+
+
+
+#+end_src
+
+#+RESULTS:
+: Apple							      |	        Paint
+We can easily do this with process substitution, in one line and no clean up
+
+#+begin_src shell
+
+diff -y <(head -n 1 .dictionary) <(tail -n 1 .dictionary)
+
+#+end_src
+
+The <(...) is replaced with the temp FIFO created by bash.  So diff actually sees this
+
+#+begin_src shell
+
+diff -y /dev/fd/63 /dev/fd/62
+
+#+end_src
+
+Essentially it runs our heads and tials comands and then it send them to the fifo files above.  And then the file is subsituted into the dif command.
+
+#+begin_src shell
+
+echo <(cat /dev/null)
+
+#+end_src
+
+#+RESULTS:
+: /dev/fd/63
