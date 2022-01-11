@@ -15,20 +15,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org556e959">Arrays</a></li>
-<li><a href="#org9f89c16">Semi advanced concepts ahead</a>
+<li><a href="#org30fbb2c">Arrays</a></li>
+<li><a href="#org3580585">Semi advanced concepts ahead</a>
 <ul>
-<li><a href="#orgbe968ec">Heres how to print an array</a></li>
-<li><a href="#orgfdf320d">Sparse arrays</a></li>
-<li><a href="#orge0bad0f">Associative arrays</a></li>
+<li><a href="#org51d9aaf">Heres how to print an array</a></li>
+<li><a href="#org2605478">Sparse arrays</a></li>
+<li><a href="#orga0726ec">Associative arrays</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org556e959" class="outline-2">
-<h2 id="org556e959">Arrays</h2>
-<div class="outline-text-2" id="text-org556e959">
+<div id="outline-container-org30fbb2c" class="outline-2">
+<h2 id="org30fbb2c">Arrays</h2>
+<div class="outline-text-2" id="text-org30fbb2c">
 <p>
 Heres how to make an array
 </p>
@@ -79,9 +79,9 @@ declare -p orgfiles
 </div>
 </div>
 
-<div id="outline-container-org9f89c16" class="outline-2">
-<h2 id="org9f89c16">Semi advanced concepts ahead</h2>
-<div class="outline-text-2" id="text-org9f89c16">
+<div id="outline-container-org3580585" class="outline-2">
+<h2 id="org3580585">Semi advanced concepts ahead</h2>
+<div class="outline-text-2" id="text-org3580585">
 <p>
 Bash is written in c in c an array ends with a null byte.  Bash inherits this behavior.  Data streams can contain NUL bytes which are output from a data stream.  FIle name and most human readlable thinsg can not contain NUL bytes.
 </p>
@@ -108,9 +108,9 @@ Above is the best way to read a commands output.  Heres why
 </ul>
 </div>
 
-<div id="outline-container-orgbe968ec" class="outline-3">
-<h3 id="orgbe968ec">Heres how to print an array</h3>
-<div class="outline-text-3" id="text-orgbe968ec">
+<div id="outline-container-org51d9aaf" class="outline-3">
+<h3 id="org51d9aaf">Heres how to print an array</h3>
+<div class="outline-text-3" id="text-org51d9aaf">
 <p>
 declare -a declares an numeric array
 </p>
@@ -228,9 +228,9 @@ The [..] creates an artihmatic context which means you go do math without (())
 </div>
 </div>
 
-<div id="outline-container-orgfdf320d" class="outline-3">
-<h3 id="orgfdf320d">Sparse arrays</h3>
-<div class="outline-text-3" id="text-orgfdf320d">
+<div id="outline-container-org2605478" class="outline-3">
+<h3 id="org2605478">Sparse arrays</h3>
+<div class="outline-text-3" id="text-org2605478">
 <div class="org-src-container">
 <pre class="src src-shell">
 <span style="font-weight: bold; font-style: italic;">nums</span>=(zero one two three four)
@@ -263,9 +263,9 @@ Also using ${arrayname[@]} will remove all gaps in the array
 </div>
 </div>
 
-<div id="outline-container-orge0bad0f" class="outline-3">
-<h3 id="orge0bad0f">Associative arrays</h3>
-<div class="outline-text-3" id="text-orge0bad0f">
+<div id="outline-container-orga0726ec" class="outline-3">
+<h3 id="orga0726ec">Associative arrays</h3>
+<div class="outline-text-3" id="text-orga0726ec">
 <p>
 These allow the indices of an array to be something other than indices.
 </p>
@@ -273,7 +273,7 @@ These allow the indices of an array to be something other than indices.
 
 
 <div class="org-src-container">
-<pre class="src src-shell" id="org4222b98">
+<pre class="src src-shell" id="org48cdd81">
 declare -A fullNames
 <span style="font-weight: bold; font-style: italic;">fullNames</span>=( [<span style="font-style: italic;">"lhunath"</span>]=<span style="font-style: italic;">"Maarten Billemont"</span> [<span style="font-style: italic;">"greycat"</span>]=<span style="font-style: italic;">"Greg Wooledge"</span> [<span style="font-style: italic;">'malcolm2'</span>]=<span style="font-style: italic;">"Malcolm Kahora"</span> )
 <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Current user is: $USER.  Full name: ${fullNames[$USER]}."</span>
