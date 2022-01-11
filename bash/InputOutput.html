@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga67eb9a">IO</a>
+<ul>
+<li><a href="#orgde498c8">Input</a></li>
+<li><a href="#org9445685">Output</a></li>
+<li><a href="#org606a28b">Command line arguments</a>
+<ul>
+<li><a href="#orgea0fe4d">Positional Parameters</a></li>
+</ul>
+</li>
+<li><a href="#orgdb8e2fd">The environment</a></li>
+<li><a href="#org0fba820"><span class="todo TODO">TODO</span> child process</a></li>
+<li><a href="#orge76c40d">File Redirection</a>
+<ul>
+<li><a href="#org9fbc668">The systems black hole</a></li>
+<li><a href="#org58da7b1">file description manipulation.</a></li>
+<li><a href="#orgd4d43d1">Heredocs and here strings</a></li>
+<li><a href="#org4371cff">Herestring</a></li>
+</ul>
+</li>
+<li><a href="#org1c26d1e">Pipes</a></li>
+<li><a href="#orgee9e11d">Misc Operators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga67eb9a" class="outline-2">
+<h2 id="orga67eb9a">IO</h2>
+<div class="outline-text-2" id="text-orga67eb9a">
+<p>
+Theres a lot of flexibility in bash input output making it fairly complex.
+</p>
+</div>
+
+<div id="outline-container-orgde498c8" class="outline-3">
+<h3 id="orgde498c8">Input</h3>
+<div class="outline-text-3" id="text-orgde498c8">
+<ul class="org-ul">
+<li>Command line arguments.</li>
+<li>Enviroment variables</li>
+<li>Files</li>
+<li>Anything else a File Descriptor can point to (pipes, terminals, sockets, etc).</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org9445685" class="outline-3">
+<h3 id="org9445685">Output</h3>
+<div class="outline-text-3" id="text-org9445685">
+<p>
+Anything the program produces or writes is output.
+</p>
+<ul class="org-ul">
+<li>Files</li>
+<li>Anything the file descriptor can point to.</li>
+<li>Command line arguments</li>
+<li>Environment variables passed to other programs</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org606a28b" class="outline-3">
+<h3 id="org606a28b">Command line arguments</h3>
+<div class="outline-text-3" id="text-org606a28b">
+</div>
+<div id="outline-container-orgea0fe4d" class="outline-4">
+<h4 id="orgea0fe4d">Positional Parameters</h4>
+<div class="outline-text-4" id="text-orgea0fe4d">
+<p>
+The first positional parameter is $1 then $2 and so on after the 9th you must use curly braces ${10}, and ${11}.  This is rare in practice and there are better ways to do this.
+</p>
+
+<p>
+To refer to the entire set you can use "$@".  The bould quotes are <b>extremely important</b>.  If you do not each positional parameter will suffer from word splitting and globing.  The double quotes tell the system to preserve each parameter as a word.  When using the shift command it eliminates the previous positional argument.  This mean the second argument becomes $1.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb8e2fd" class="outline-3">
+<h3 id="orgdb8e2fd">The environment</h3>
+<div class="outline-text-3" id="text-orgdb8e2fd">
+<p>
+Environment variables work much like bash variables only they already exist when a script is just started up.  Most if not all environment variables are capitalized this way as long as you use one lower case letter you never have to worry about a collision.  The users locale is where you can set a specific users environment values in a dotfile and every program the runs will use those specific environment variables.
+</p>
+
+<p>
+When running a bash script you have the option of specifying a temporary environment change which only affects the duration of the command.
+</p>
+
+<p>
+Below is an example
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+ls /tpm
+
+<span style="font-weight: bold; font-style: italic;">LANG</span>=C ls /tpm
+
+
+</pre>
+</div>
+<p>
+You can easily use environment variables.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">This runs xterm top if display is set otherwise it runs a diffren program</span>
+
+  <span style="font-weight: bold;">if</span> [[ $<span style="font-weight: bold; font-style: italic;">DISPLAY</span> ]]; <span style="font-weight: bold;">then</span>
+      xterm -e top
+  <span style="font-weight: bold;">else</span>
+      top
+  <span style="font-weight: bold;">fi</span>
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0fba820" class="outline-3">
+<h3 id="org0fba820"><span class="todo TODO">TODO</span> child process</h3>
+<div class="outline-text-3" id="text-org0fba820">
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">MYVAR</span>=something
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge76c40d" class="outline-3">
+<h3 id="orge76c40d">File Redirection</h3>
+<div class="outline-text-3" id="text-orge76c40d">
+<p>
+These are the three file descriptors.
+</p>
+
+<ul class="org-ul">
+<li>Standard input <i>stdin</i>: FIle descriptor 0</li>
+<li>Standard output <i>stdout: FIle descriptor 1</i></li>
+<li>Standard error <i>stderr</i>: FIle descriptor 2</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"It twas a dark and stormy night"</span> &gt; file
+
+cat file
+
+
+
+
+
+
+</pre>
+</div>
+
+<p>
+the &gt; is an output redirection character.  This changes the output of the echo command to instead of going to the terminal goes to the file.  The behavior occurs before echo is executed so bash does not check to see if file exists. It just opens the file and if there was a previous file it would be replaced with the new contents.  However you can change this behavior with shell options.  This is all based on the scripts stdout location.
+</p>
+
+<p>
+<b>Warning</b> do not use cat when you just want to read a files contents.  Cat is sued to con <b>cat</b> anate multiple files.  Use redirection instead of pipes and cats.  Using cat will cause extra processes to occur.
+</p>
+
+<p>
+using cat with no files will read from stdin much like the read command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+    cat
+  <span style="font-weight: bold;">test</span>
+<span style="font-weight: bold;">test</span>
+
+
+</pre>
+</div>
+<p>
+The stdin is from the terminal and its output to the terminal so anything you enter is output twice.
+</p>
+
+<p>
+This happens when the terminal is in canonical mode.  This shows you what you type and allows you to hit the backspace key.
+</p>
+
+<p>
+C<sup>d</sup> sends the terminal the end of the file character.
+</p>
+
+<p>
+You can also use file redirection for input.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+cat &lt; file
+
+</pre>
+</div>
+
+<p>
+In this example the &lt; modifies cats stdin to be the file rather than than the terminal input.  
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">
+
+  <span style="font-weight: bold;">for</span> homedir<span style="font-weight: bold;"> in</span> /home/*
+  <span style="font-weight: bold;">do</span> rm <span style="font-style: italic;">"$homedir/secret"</span>
+  <span style="font-weight: bold;">done</span> 2&gt; errors
+
+cat errors
+
+</pre>
+</div>
+
+<p>
+Here the for loop immediately opens the error file and all errors are fed into it and it closes when the for loop is done.
+</p>
+</div>
+
+<div id="outline-container-org9fbc668" class="outline-4">
+<h4 id="org9fbc668">The systems black hole</h4>
+<div class="outline-text-4" id="text-org9fbc668">
+<p>
+the <i>dev/null</i> directory is a black hole thats because its not a normal file its a virtual device some refer to it as the bit bucket.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">for</span> homdir<span style="font-weight: bold;"> in</span> /home/*; <span style="font-weight: bold;">do</span>
+  rm <span style="font-style: italic;">"$homedir/secret"</span>
+<span style="font-weight: bold;">done</span> 2&gt; /dev/null
+
+</pre>
+</div>
+
+<p>
+If you don't want to overide files with file redirection you can use two symbols to just append to the end of the file so instead of &gt; you have &gt;&gt;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+  <span style="font-weight: bold;">for</span> homedir<span style="font-weight: bold;"> in</span> /home/*
+  <span style="font-weight: bold;">do</span> rm <span style="font-style: italic;">"$homedir/secret"</span>
+  <span style="font-weight: bold;">done</span> 2&gt;&gt; errors
+
+cat errors
+
+</pre>
+</div>
+
+<p>
+You dont need white space for file redirection.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58da7b1" class="outline-4">
+<h4 id="org58da7b1">file description manipulation.</h4>
+<div class="outline-text-4" id="text-org58da7b1">
+<div class="org-src-container">
+<pre class="src src-shell">
+
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"I love diet coke"</span> &gt; file
+
+
+</pre>
+</div>
+
+
+<p>
+Theors a tool called grep and its like duct tape.  It can be used in almost every project even if its a good idea or not.  Grep takes a search pattern as the first arg and maybe some other filenames as extra arguments.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-shell">
+ls house/ 
+
+grep -r socks house/
+
+
+
+</pre>
+</div>
+
+<p>
+Heres a more realistic example.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+grep <span style="font-style: italic;">"$HOSTNAME"</span> /etc/*
+
+
+</pre>
+</div>
+<p>
+Using grep in file descriptor manipulation.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+grep diet file
+
+</pre>
+</div>
+<p>
+If we want to silence grep error messages this what we do.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+grep coke file <span style="font-style: italic;">'not a file'</span>
+
+
+</pre>
+</div>
+<p>
+To silince it we do this.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+  grep coke file <span style="font-style: italic;">'not a file'</span> &gt; grep.log 2&gt; grep.log 
+
+head grep.log
+
+</pre>
+</div>
+
+<p>
+The above does not quite work.
+</p>
+
+<p>
+We can avoid this by duplicating file directions
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+  grep coke file <span style="font-style: italic;">'not a file'</span> &gt; grep2.log 2&gt;&amp;1
+
+cat grep2.log
+
+</pre>
+</div>
+
+<p>
+File redirection are always read left to right.  First the stdout points to grep2.log the &gt;&amp;1 syntax duplicates the first file redirection.  This duplicate is then put into file redirection 2.
+</p>
+
+<p>
+This is what happens when you confuse the order.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+    grep coke file <span style="font-style: italic;">'not a file'</span> 2&gt;&amp;1 &gt; grep3.log
+
+cat grep3.log
+
+
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4d43d1" class="outline-4">
+<h4 id="orgd4d43d1">Heredocs and here strings</h4>
+<div class="outline-text-4" id="text-orgd4d43d1">
+<p>
+To write a small amount of datat sometimes a txt file is to much.  We can use heredocs and herestrings.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+grep proud &lt;&lt;END
+<span style="font-weight: bold;">I am a proud sentence.</span>
+<span style="font-weight: bold;">END</span>
+
+
+</pre>
+</div>
+
+<p>
+This is an example of a heredoc or (Here Document)
+</p>
+
+<p>
+We first set a word as a sentenial.  All words that follwo from the first instance of the sentenial to the end become the stdin for the command.  The second insatnce has to be a line of itself.
+</p>
+
+<p>
+Normally you can't indent them.  Any spaces will appear in the heredocs.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Let's test abc:"</span>
+<span style="font-weight: bold;">if</span> [[ abc = a* ]]; <span style="font-weight: bold;">then</span>
+    cat &lt;&lt;END
+<span style="font-weight: bold;">        abc seems to start with an a!</span>
+<span style="font-weight: bold;">END</span>
+<span style="font-weight: bold;">fi</span>
+
+</pre>
+</div>
+
+<p>
+Above the white space is used.
+</p>
+
+<p>
+You can use &lt;&lt;-END instead of &lt;&lt;END to to remove any tab charecters at the beginning of each line.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+cat &lt;&lt;-<span style="font-style: italic;">'XYZ'</span>
+<span style="font-weight: bold;">         My home directory is $HOME</span>
+<span style="font-weight: bold;">XYZ</span>
+
+
+</pre>
+</div>
+<p>
+Because we quoted the first appearance the $HOME is not expanded
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+cat &lt;&lt;XYZ
+<span style="font-weight: bold;">My home directory is $HOME</span>
+<span style="font-weight: bold;">XYZ</span>
+
+
+</pre>
+</div>
+<p>
+Because it wasn't quoted we expand the parameter.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4371cff" class="outline-4">
+<h4 id="org4371cff">Herestring</h4>
+<div class="outline-text-4" id="text-org4371cff">
+<div class="org-src-container">
+<pre class="src src-shell">
+grep cats &lt;&lt;&lt;<span style="font-style: italic;">"My cats name is twighlight"</span>
+
+</pre>
+</div>
+
+<p>
+stdin reads straight from the string after &lt;&lt;&lt;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+grep proud &lt;&lt;&lt;<span style="font-style: italic;">"$USER sits proudly on his throne in $HOSTNAME."</span>
+
+</pre>
+</div>
+<p>
+Useful for strings and built in parameters.
+</p>
+
+<p>
+herestrings are not portable to the borne shell.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'Wrap this silly sentence.'</span> | fmt -t -w 20
+fmt -t -w 20 &lt;&lt;&lt; <span style="font-style: italic;">'Wrap this silly sentence.'</span>
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+cat &lt;&lt;EOF &gt; file
+<span style="font-weight: bold;">My home dir is $HOME</span>
+<span style="font-weight: bold;">EOF</span>
+cat file
+
+
+</pre>
+</div>
+
+<p>
+Here we take a heredoc and port it to a file.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c26d1e" class="outline-3">
+<h3 id="org1c26d1e">Pipes</h3>
+<div class="outline-text-3" id="text-org1c26d1e">
+<p>
+Pipes allow you to chain commands together
+</p>
+
+<p>
+the mkfifo command makes a special file called first in first out.  These are special files.  Fifos never really contain data.  If you read from a fifo you knly read datat as its coming in.  Below is a good example.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-shell">
+
+ mkfifo myfifo; ls
+myfifo
+ grep bea myfifo &amp;
+[1] 32635
+ <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"rat</span>
+<span style="font-style: italic;"> cow</span>
+<span style="font-style: italic;"> deer</span>
+<span style="font-style: italic;"> bear</span>
+<span style="font-style: italic;"> snake"</span> &gt; myfifo
+
+
+</pre>
+</div>
+
+<p>
+first we make fifo called my fifo.  Then we search fro bea in myfifo file.  However we use the &amp; operator which runs it in the background so we can continiue to type commands even if the command hasnt finished yet.  The cho command feed data to teh fifo and once its avible the grep command reads from the fifo.
+</p>
+
+<p>
+Pipes are a better alternative to fifo.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"rat</span>
+<span style="font-style: italic;">cow</span>
+<span style="font-style: italic;">deer</span>
+<span style="font-style: italic;">bear</span>
+<span style="font-style: italic;">snake"</span> | grep bea
+
+
+</pre>
+</div>
+
+<p>
+The former commands stdout is now connected to the next commands stdin.
+</p>
+
+<p>
+FIFO's are ofter called named pipes.  They accomplish the same thing as a pipe but through a file name.
+</p>
+
+<p>
+Important.  Pipes creat a subshell.  WHich means variables in which you modify will appear unmodified outside of the subshell.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold; font-style: italic;">message</span>=Test
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'Salut, le monde!'</span> | <span style="font-weight: bold;">read</span> message
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"The message is: $message"</span>
+
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'Salut, le monde!'</span> | { <span style="font-weight: bold;">read</span> message; <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"The message is: $message"</span>; }
+
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"The message is: $message"</span>
+
+
+</pre>
+</div>
+
+<p>
+Here message is never modified its only ever modified in the third echo command because the echoing occurs in the sub process.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee9e11d" class="outline-3">
+<h3 id="orgee9e11d">Misc Operators</h3>
+<div class="outline-text-3" id="text-orgee9e11d">
+<p>
+A distant cousin of pipes in the Process Substitution operator; the twoo forms are &lt;(cmd) and &gt;(cmd).
+</p>
+
+<p>
+the &gt;() is rare and does the same as &lt;() but in reverse.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+diff &lt;(sort file1) &lt;(sort file2)
+
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-shell">        <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Apple</span>
+<span style="font-style: italic;">        Avacado</span>
+<span style="font-style: italic;">        Bear</span>
+<span style="font-style: italic;">        Category</span>
+<span style="font-style: italic;">        Falcon</span>
+<span style="font-style: italic;">        Paint"</span> &gt; .dictionary
+
+      head -n 1 .dictionary &gt; temp1
+    tail -n 1 .dictionary &gt; temp2
+
+  diff -y temp1 temp2
+
+rm temp?
+
+
+
+</pre>
+</div>
+<p>
+We can easily do this with process substitution, in one line and no clean up
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+diff -y &lt;(head -n 1 .dictionary) &lt;(tail -n 1 .dictionary)
+
+</pre>
+</div>
+
+<p>
+The &lt;(&#x2026;) is replaced with the temp FIFO created by bash.  So diff actually sees this
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+diff -y /dev/fd/63 /dev/fd/62
+
+</pre>
+</div>
+
+<p>
+Essentially it runs our heads and tials comands and then it send them to the fifo files above.  And then the file is subsituted into the dif command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+<span style="font-weight: bold;">echo</span> &lt;(cat /dev/null)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>
