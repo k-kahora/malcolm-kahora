@@ -20,9 +20,14 @@ These are my major personal projects so far.  Their both written in Java using t
 
 ** Wii Tanks Clone
 
-As a child I played alto of Wii tanks with my cousin so I anted to make my own version.  Alot of the creative is from my college dining hall.  The food their atrocious and I wanted to make game satirizing it.
+As a child I played alot of Wii tanks with my cousin so I wanted to make my own version.  Most of the creative is from my college dining hall.  The food their atrocious and I wanted to memorialize it.
+
+Controls: Move (a-s-d-f)
+Mine: (SPACE)
+Shoot: (Left Click)
 
 [[../Pirate/index.html][game]]
+
 ** PathFinding
 
 This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
