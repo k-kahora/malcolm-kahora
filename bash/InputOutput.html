@@ -15,43 +15,43 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdfae0dd">IO</a>
+<li><a href="#orga700472">IO</a>
 <ul>
-<li><a href="#org5c31679">Input</a></li>
-<li><a href="#org7ce8ae2">Output</a></li>
-<li><a href="#orgdbc4ec2">Command line arguments</a>
+<li><a href="#orgb3d8e33">Input</a></li>
+<li><a href="#org504b42d">Output</a></li>
+<li><a href="#org2f88cc7">Command line arguments</a>
 <ul>
-<li><a href="#orgeec0bab">Positional Parameters</a></li>
+<li><a href="#org417e61c">Positional Parameters</a></li>
 </ul>
 </li>
-<li><a href="#orgdab811f">The environment</a></li>
-<li><a href="#org619aaeb"><span class="todo TODO">TODO</span> child process</a></li>
-<li><a href="#org749ef5d">File Redirection</a>
+<li><a href="#org393686b">The environment</a></li>
+<li><a href="#orge94a210"><span class="todo TODO">TODO</span> child process</a></li>
+<li><a href="#orgc5aab46">File Redirection</a>
 <ul>
-<li><a href="#orgce2847c">The systems black hole</a></li>
-<li><a href="#org1245769">file description manipulation.</a></li>
-<li><a href="#org8da4888">Heredocs and here strings</a></li>
-<li><a href="#org2394f16">Herestring</a></li>
+<li><a href="#org52ab35d">The systems black hole</a></li>
+<li><a href="#orgedc17ae">file description manipulation.</a></li>
+<li><a href="#org1126084">Heredocs and here strings</a></li>
+<li><a href="#org0afc470">Herestring</a></li>
 </ul>
 </li>
-<li><a href="#orge662e25">Pipes</a></li>
-<li><a href="#orgf316c7b">Misc Operators</a></li>
+<li><a href="#orgc971750">Pipes</a></li>
+<li><a href="#org42e8dd4">Misc Operators</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfae0dd" class="outline-2">
-<h2 id="orgdfae0dd">IO</h2>
-<div class="outline-text-2" id="text-orgdfae0dd">
+<div id="outline-container-orga700472" class="outline-2">
+<h2 id="orga700472">IO</h2>
+<div class="outline-text-2" id="text-orga700472">
 <p>
 Theres a lot of flexibility in bash input output making it fairly complex.
 </p>
 </div>
 
-<div id="outline-container-org5c31679" class="outline-3">
-<h3 id="org5c31679">Input</h3>
-<div class="outline-text-3" id="text-org5c31679">
+<div id="outline-container-orgb3d8e33" class="outline-3">
+<h3 id="orgb3d8e33">Input</h3>
+<div class="outline-text-3" id="text-orgb3d8e33">
 <ul class="org-ul">
 <li>Command line arguments.</li>
 <li>Enviroment variables</li>
@@ -62,9 +62,9 @@ Theres a lot of flexibility in bash input output making it fairly complex.
 </div>
 
 
-<div id="outline-container-org7ce8ae2" class="outline-3">
-<h3 id="org7ce8ae2">Output</h3>
-<div class="outline-text-3" id="text-org7ce8ae2">
+<div id="outline-container-org504b42d" class="outline-3">
+<h3 id="org504b42d">Output</h3>
+<div class="outline-text-3" id="text-org504b42d">
 <p>
 Anything the program produces or writes is output.
 </p>
@@ -78,13 +78,13 @@ Anything the program produces or writes is output.
 </div>
 
 
-<div id="outline-container-orgdbc4ec2" class="outline-3">
-<h3 id="orgdbc4ec2">Command line arguments</h3>
-<div class="outline-text-3" id="text-orgdbc4ec2">
+<div id="outline-container-org2f88cc7" class="outline-3">
+<h3 id="org2f88cc7">Command line arguments</h3>
+<div class="outline-text-3" id="text-org2f88cc7">
 </div>
-<div id="outline-container-orgeec0bab" class="outline-4">
-<h4 id="orgeec0bab">Positional Parameters</h4>
-<div class="outline-text-4" id="text-orgeec0bab">
+<div id="outline-container-org417e61c" class="outline-4">
+<h4 id="org417e61c">Positional Parameters</h4>
+<div class="outline-text-4" id="text-org417e61c">
 <p>
 The first positional parameter is $1 then $2 and so on after the 9th you must use curly braces ${10}, and ${11}.  This is rare in practice and there are better ways to do this.
 </p>
@@ -96,9 +96,9 @@ To refer to the entire set you can use "$@".  The bould quotes are <b>extremely 
 </div>
 </div>
 
-<div id="outline-container-orgdab811f" class="outline-3">
-<h3 id="orgdab811f">The environment</h3>
-<div class="outline-text-3" id="text-orgdab811f">
+<div id="outline-container-org393686b" class="outline-3">
+<h3 id="org393686b">The environment</h3>
+<div class="outline-text-3" id="text-org393686b">
 <p>
 Environment variables work much like bash variables only they already exist when a script is just started up.  Most if not all environment variables are capitalized this way as long as you use one lower case letter you never have to worry about a collision.  The users locale is where you can set a specific users environment values in a dotfile and every program the runs will use those specific environment variables.
 </p>
@@ -139,9 +139,9 @@ You can easily use environment variables.
 </div>
 </div>
 
-<div id="outline-container-org619aaeb" class="outline-3">
-<h3 id="org619aaeb"><span class="todo TODO">TODO</span> child process</h3>
-<div class="outline-text-3" id="text-org619aaeb">
+<div id="outline-container-orge94a210" class="outline-3">
+<h3 id="orge94a210"><span class="todo TODO">TODO</span> child process</h3>
+<div class="outline-text-3" id="text-orge94a210">
 <div class="org-src-container">
 <pre class="src src-shell">
 <span style="font-weight: bold;">export</span> <span style="font-weight: bold; font-style: italic;">MYVAR</span>=something
@@ -151,9 +151,9 @@ You can easily use environment variables.
 </div>
 </div>
 
-<div id="outline-container-org749ef5d" class="outline-3">
-<h3 id="org749ef5d">File Redirection</h3>
-<div class="outline-text-3" id="text-org749ef5d">
+<div id="outline-container-orgc5aab46" class="outline-3">
+<h3 id="orgc5aab46">File Redirection</h3>
+<div class="outline-text-3" id="text-orgc5aab46">
 <p>
 These are the three file descriptors.
 </p>
@@ -243,9 +243,9 @@ Here the for loop immediately opens the error file and all errors are fed into i
 </p>
 </div>
 
-<div id="outline-container-orgce2847c" class="outline-4">
-<h4 id="orgce2847c">The systems black hole</h4>
-<div class="outline-text-4" id="text-orgce2847c">
+<div id="outline-container-org52ab35d" class="outline-4">
+<h4 id="org52ab35d">The systems black hole</h4>
+<div class="outline-text-4" id="text-org52ab35d">
 <p>
 the <i>dev/null</i> directory is a black hole thats because its not a normal file its a virtual device some refer to it as the bit bucket.
 </p>
@@ -280,9 +280,9 @@ You dont need white space for file redirection.
 </div>
 </div>
 
-<div id="outline-container-org1245769" class="outline-4">
-<h4 id="org1245769">file description manipulation.</h4>
-<div class="outline-text-4" id="text-org1245769">
+<div id="outline-container-orgedc17ae" class="outline-4">
+<h4 id="orgedc17ae">file description manipulation.</h4>
+<div class="outline-text-4" id="text-orgedc17ae">
 <div class="org-src-container">
 <pre class="src src-shell">
 
@@ -392,9 +392,9 @@ cat grep3.log
 </div>
 </div>
 
-<div id="outline-container-org8da4888" class="outline-4">
-<h4 id="org8da4888">Heredocs and here strings</h4>
-<div class="outline-text-4" id="text-org8da4888">
+<div id="outline-container-org1126084" class="outline-4">
+<h4 id="org1126084">Heredocs and here strings</h4>
+<div class="outline-text-4" id="text-org1126084">
 <p>
 To write a small amount of datat sometimes a txt file is to much.  We can use heredocs and herestrings.
 </p>
@@ -469,9 +469,9 @@ Because it wasn't quoted we expand the parameter.
 </div>
 </div>
 
-<div id="outline-container-org2394f16" class="outline-4">
-<h4 id="org2394f16">Herestring</h4>
-<div class="outline-text-4" id="text-org2394f16">
+<div id="outline-container-org0afc470" class="outline-4">
+<h4 id="org0afc470">Herestring</h4>
+<div class="outline-text-4" id="text-org0afc470">
 <div class="org-src-container">
 <pre class="src src-shell">
 grep cats &lt;&lt;&lt;<span style="font-style: italic;">"My cats name is twighlight"</span>
@@ -523,9 +523,9 @@ Here we take a heredoc and port it to a file.
 </div>
 </div>
 
-<div id="outline-container-orge662e25" class="outline-3">
-<h3 id="orge662e25">Pipes</h3>
-<div class="outline-text-3" id="text-orge662e25">
+<div id="outline-container-orgc971750" class="outline-3">
+<h3 id="orgc971750">Pipes</h3>
+<div class="outline-text-3" id="text-orgc971750">
 <p>
 Pipes allow you to chain commands together
 </p>
@@ -604,9 +604,9 @@ Here message is never modified its only ever modified in the third echo command 
 </div>
 </div>
 
-<div id="outline-container-orgf316c7b" class="outline-3">
-<h3 id="orgf316c7b">Misc Operators</h3>
-<div class="outline-text-3" id="text-orgf316c7b">
+<div id="outline-container-org42e8dd4" class="outline-3">
+<h3 id="org42e8dd4">Misc Operators</h3>
+<div class="outline-text-3" id="text-org42e8dd4">
 <p>
 A distant cousin of pipes in the Process Substitution operator; the twoo forms are &lt;(cmd) and &gt;(cmd).
 </p>
