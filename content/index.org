@@ -41,6 +41,9 @@ I wrote this tutorial for using a assembler in my computer architecture class.
 ** Installing Mano Simulator on Windows/Linux
 [[./mano_instructions.org][Mano Sim]]
 
+* Data Simulation with D3.js
+
+[[../batting/main.html][Base Ball Stats]]
 
 * Github
 Heres my [[https://github.com/cerealman23][github]]

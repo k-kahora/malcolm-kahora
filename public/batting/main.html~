@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>D3 Page Template</title>
+	<script type="text/javascript" src="../d3.js"></script>
+    </head>
+    <body>
+	<script type="text/javascript">
+
+	 var w = 800, h = 500;
+
+	 var padding = 40;
+
+	 var dataset, xAxis, yAxis, xScale, yScale;
+
+	 // Makes the date a Date object
+	 var parseTime = d3.timeParse("%Y");
+
+	 var formatTime = d3.timeFormat("%Y");
+
+	 var stack = d3.stack()
+		       .order(d3.stackOrderAscending);
+
+	 var globalData;
+
+	 
+	 
+	 
+	 
+	 var rowConverter = function(data) {
+
+	     return {
+		 
+  		 playerID: data.playerID,
+  		 yearID: parseTime(data.yearID),
+  		 teamID: data.teamID,
+  		 AB: parseInt(data.AB),
+  		 R: parseInt(data.R),
+		 BA: parseFloat(data.R)/parseFloat(data.AB)
+
+	 }};
+	 
+	 d3.csv("batting.csv", rowConverter, function(data) {
+
+	     dataset = data;
+
+	     var hash = {};
+	     var maxVals = {}
+	     var trueData = []
+	     
+	     for (let i = 1; i < dataset.length; ++i) {
+
+		 maxVals[dataset[i].teamID] = 0;
+		 hash[dataset[i].teamID] = {};
+		 
+
+	     }
+
+	     trueData = Object.getKeys(hash);
+
+	     
+
+	     for (let i = 0; i < dataset.length; ++i) {
+
+		 hash[dataset[i].teamID][dataset[i].yearID] = {};
+		 maxVals[dataset[i].teamID] += dataset[i].R;
+		 
+
+	     }
+
+	     
+
+	     for (let i = 0; i < dataset.length; ++i) {
+
+		 Object.defineProperty(hash[dataset[i].teamID][dataset[i].yearID], dataset[i].playerID, { 
+		     
+		     
+		     value: dataset[i],
+		     configurable: true});
+		 
+
+	     }
+
+	     console.log(hash);
+
+	     
+	     xScale = d3.scaleTime()
+			.domain([d3.min(dataset, function(d) {return d.yearID}), d3.max(dataset, function(d) {return d.yearID})])
+			.range([padding, w - padding]);
+
+	     yScale = d3.scaleLinear()
+	      .domain([0, d3.max(Object.values(maxVals), function(d) {
+
+		
+		return d;
+
+		})]) 
+	     
+			.range([h - padding, padding]);
+	     
+	     xAxis = d3.axisBottom()
+		       .scale(xScale)
+		       .ticks(10)
+		       .tickFormat(formatTime);
+
+	     
+	     yAxis = d3.axisRight()
+		       .scale(yScale)
+		       .ticks(10)
+	     
+
+	     
+	     var svg = d3.select("body")
+			 .append("svg")
+			 .attr("width", w)
+			 .attr("height", h);
+
+	     console.log(hash);
+
+	     
+	     
+	     svg.selectAll("path")
+		.data(hash["ALT"])
+			  .enter()
+			  .append("path");
+
+	     
+	     
+	   
+	     
+	     svg.append("g")
+		.attr("class", "axis x")
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis);
+
+	     
+	     svg.append("g")
+		.attr("class", "axis y")
+		.attr("transform", "translate(" + (w - padding) + "," + 0 + ")")
+		.call(yAxis);
+
+	     
+	 });
+	 
+	 
+	 
+	</script>
+    </body>
+</html>
