@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Page Template</title>
+    <script type="text/javascript" src="../d3.js"></script>
+    <script src="baseballstats.js"></script>
+    <script type="module">
+
+	import {interpolateYlGn} from "https://cdn.skypack.dev/d3-scale-chromatic@3";
+	const yellow = interpolateYlGn(0); // "rgb(255, 255, 229)"
+	const yellowGreen = interpolateYlGn(0.5); // "rgb(120, 197, 120)"
+	const green = interpolateYlGn(1); // "rgb(0, 69, 41)"
+
+    </script>
+    
+    <style>
+
+     body {
+	 font-family: Helvetica, Arial, sans-serif;
+
+     }
+     
+     #container {
+	 width: 1000px;
+	 margin: 25px auto 25px auto;
+	 padding: 50px 50px 50px 50px;
+	 background-color: white;
+	 box-shadow: 0 0 20px #ccc;
+     }
+
+     h1 {
+
+	 margin-bottom: 25px;
+	 font-weight: bold;
+	 
+     }
+     
+     svg {
+	 display: block;
+	 margin-bottom: 10px;
+	 background-color: white;
+
+     }
+
+
+     
+     /* 
+	.axis {
+
+	fill: white;
+	stroke: white
+
+	}
+      */
+     
+
+     .area {
+	 stroke: none;
+	 cursor: pointer;
+     }
+
+
+
+     .area:hover {
+	 fill: yellow;
+     }
+
+     /* Dropdown Button */
+     .dropbtn {
+	 background-color: #04AA6D;
+	 color: white;
+	 padding: 16px;
+	 font-size: 16px;
+	 border: none;
+     }
+
+     /* The container <div> - needed to position the dropdown content */
+     .dropdown {
+	 position: relative;
+	 display: inline-block;
+     }
+
+     /* Dropdown Content (Hidden by Default) */
+     .dropdown-content {
+	 display: none;
+	 position: absolute;
+	 top: 1%;
+	 background-color: #f1f1f1;
+	 min-width: 160px;
+	 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	 z-index: 1;
+     }
+
+     /* Links inside the dropdown */
+
+     .dropdown-content a {
+	 float: left;
+	 color: black;
+	 display: inline;
+	 padding: 10px 10px 10px;
+	 border-right: 1px solid #c3c3c3;
+	 text-decoration: none;
+	 
+     }     
+     
+     /* Show the dropdown menu on hover */
+
+     .dropdown:hover .dropdown-content {display: inline;}
+
+     .dropdown-content a:hover {background-color: #ddd;}
+
+     /* Change the background color of the dropdown button when the dropdown content is shown */
+     .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+    </style>
+    
+  </head>
+  <body>
+      <div id="container">
+      
+	  <h1>Major Leauge Baseball Stats Since 1871</h1>
+
+	  <div class="dropdown"><button class="dropbtn">Stats</button>
+	      <div class="dropdown-content"></div>
+
+	      <p>
+	      This is a graph baseball stats collected from <a href="https://github.com/domwon/Baseball-Data">github</a> click a section to find a teams indivdual stats.  Use the stats button to select that stat you would like to view.
+
+	      
+	  </p>
+
+	  
+	  
+	  <div id="chart-container">
+
+	      
+	  </div>
+
+	  <div id="footer">
+	      <p>footer</p>
+	      
+	  </div>
+	  
+	  </div>
+      
+
+
+    
+  </body>
+</html>
