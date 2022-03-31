@@ -15,22 +15,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc837c8a">Failure</a></li>
-<li><a href="#orgc3d392f">&amp;&amp; and II</a></li>
-<li><a href="#org09e5819">Grouping withe grep</a></li>
-<li><a href="#orga0b7b26">Conditional blocks</a>
+<li><a href="#orgcbf7cf4">Failure</a></li>
+<li><a href="#orged0009a">&amp;&amp; and II</a></li>
+<li><a href="#orgc3d8d32">Grouping withe grep</a></li>
+<li><a href="#org8d47758">Conditional blocks</a>
 <ul>
-<li><a href="#org4d8d1d5">Good practice</a></li>
+<li><a href="#orgd2a9ec0">Good practice</a></li>
 </ul>
 </li>
-<li><a href="#org7982c9d">For Loops and conditional loops</a>
+<li><a href="#org963c8e0">For Loops and conditional loops</a>
 <ul>
-<li><a href="#orgc64f28d">while command</a></li>
-<li><a href="#orgd3e6231">until commands</a></li>
-<li><a href="#org6dadc5e">for <i>variable</i> in <i>words</i></a></li>
-<li><a href="#org209530c">for (( <i>expression</i>; <i>expression</i>; <i>expression</i> ))</a></li>
-<li><a href="#org7c43022">Choices cases and select</a></li>
-<li><a href="#orgcfb8a3f">Selects</a></li>
+<li><a href="#orga6bb374">while command</a></li>
+<li><a href="#org4acab52">until commands</a></li>
+<li><a href="#org02c9433">for <i>variable</i> in <i>words</i></a></li>
+<li><a href="#orgbcd2d45">for (( <i>expression</i>; <i>expression</i>; <i>expression</i> ))</a></li>
+<li><a href="#org5423112">Choices cases and select</a></li>
+<li><a href="#org94b8056">Selects</a></li>
 </ul>
 </li>
 </ul>
@@ -42,9 +42,9 @@ To enter scripts into the bash shell add a \ at the end of the command and type 
 
 
 
-<div id="outline-container-orgc837c8a" class="outline-2">
-<h2 id="orgc837c8a">Failure</h2>
-<div class="outline-text-2" id="text-orgc837c8a">
+<div id="outline-container-orgcbf7cf4" class="outline-2">
+<h2 id="orgcbf7cf4">Failure</h2>
+<div class="outline-text-2" id="text-orgcbf7cf4">
 <p>
 0 denotes success any other number denotes failure
 the ? keyword echos that fail status of the last run command
@@ -82,9 +82,9 @@ Use the exit keyword
 </div>
 </div>
 
-<div id="outline-container-orgc3d392f" class="outline-2">
-<h2 id="orgc3d392f">&amp;&amp; and II</h2>
-<div class="outline-text-2" id="text-orgc3d392f">
+<div id="outline-container-orged0009a" class="outline-2">
+<h2 id="orged0009a">&amp;&amp; and II</h2>
+<div class="outline-text-2" id="text-orged0009a">
 <p>
 This will make the dir c if it succeeds (exit code 0) then it will change into the c directory.
 </p>
@@ -110,9 +110,9 @@ mkdir c &amp;&amp; <span style="font-weight: bold;">cd</span> c || <span style="
 </div>
 </div>
 
-<div id="outline-container-org09e5819" class="outline-2">
-<h2 id="org09e5819">Grouping withe grep</h2>
-<div class="outline-text-2" id="text-org09e5819">
+<div id="outline-container-orgc3d8d32" class="outline-2">
+<h2 id="orgc3d8d32">Grouping withe grep</h2>
+<div class="outline-text-2" id="text-orgc3d8d32">
 <p>
 putting a ! inferno of a command negates its exit status.
 </p>
@@ -153,9 +153,9 @@ File is fed into teh group and the group will run a bunch of commands when its f
 </div>
 </div>
 
-<div id="outline-container-orga0b7b26" class="outline-2">
-<h2 id="orga0b7b26">Conditional blocks</h2>
-<div class="outline-text-2" id="text-orga0b7b26">
+<div id="outline-container-org8d47758" class="outline-2">
+<h2 id="org8d47758">Conditional blocks</h2>
+<div class="outline-text-2" id="text-org8d47758">
 <div class="org-src-container">
 <pre class="src src-shell">
 <span style="font-weight: bold;">if</span> true
@@ -494,9 +494,9 @@ These are the same expressions below
 </div>
 </div>
 
-<div id="outline-container-org4d8d1d5" class="outline-3">
-<h3 id="org4d8d1d5">Good practice</h3>
-<div class="outline-text-3" id="text-org4d8d1d5">
+<div id="outline-container-orgd2a9ec0" class="outline-3">
+<h3 id="orgd2a9ec0">Good practice</h3>
+<div class="outline-text-3" id="text-orgd2a9ec0">
 <p>
 Always use [[ in a bash script and [ in a shell script.
 </p>
@@ -504,13 +504,13 @@ Always use [[ in a bash script and [ in a shell script.
 </div>
 </div>
 
-<div id="outline-container-org7982c9d" class="outline-2">
-<h2 id="org7982c9d">For Loops and conditional loops</h2>
-<div class="outline-text-2" id="text-org7982c9d">
+<div id="outline-container-org963c8e0" class="outline-2">
+<h2 id="org963c8e0">For Loops and conditional loops</h2>
+<div class="outline-text-2" id="text-org963c8e0">
 </div>
-<div id="outline-container-orgc64f28d" class="outline-3">
-<h3 id="orgc64f28d">while command</h3>
-<div class="outline-text-3" id="text-orgc64f28d">
+<div id="outline-container-orga6bb374" class="outline-3">
+<h3 id="orga6bb374">while command</h3>
+<div class="outline-text-3" id="text-orga6bb374">
 <p>
 Useful when we dont know how many times we have to loop
 </p>
@@ -632,9 +632,9 @@ Every 3 seconds this loop will say wow.
 </div>
 </div>
 
-<div id="outline-container-orgd3e6231" class="outline-3">
-<h3 id="orgd3e6231">until commands</h3>
-<div class="outline-text-3" id="text-orgd3e6231">
+<div id="outline-container-org4acab52" class="outline-3">
+<h3 id="org4acab52">until commands</h3>
+<div class="outline-text-3" id="text-org4acab52">
 <p>
 Until is rarely used can use while! instead.
 </p>
@@ -648,9 +648,9 @@ Until is rarely used can use while! instead.
 </div>
 </div>
 
-<div id="outline-container-org6dadc5e" class="outline-3">
-<h3 id="org6dadc5e">for <i>variable</i> in <i>words</i></h3>
-<div class="outline-text-3" id="text-org6dadc5e">
+<div id="outline-container-org02c9433" class="outline-3">
+<h3 id="org02c9433">for <i>variable</i> in <i>words</i></h3>
+<div class="outline-text-3" id="text-org02c9433">
 <p>
 For loops use do and done which is similar to the then and fi in if statements.
 This for loops is good for looping through a list of things
@@ -658,13 +658,13 @@ This for loops is good for looping through a list of things
 </div>
 </div>
 
-<div id="outline-container-org209530c" class="outline-3">
-<h3 id="org209530c">for (( <i>expression</i>; <i>expression</i>; <i>expression</i> ))</h3>
+<div id="outline-container-orgbcd2d45" class="outline-3">
+<h3 id="orgbcd2d45">for (( <i>expression</i>; <i>expression</i>; <i>expression</i> ))</h3>
 </div>
 
-<div id="outline-container-org7c43022" class="outline-3">
-<h3 id="org7c43022">Choices cases and select</h3>
-<div class="outline-text-3" id="text-org7c43022">
+<div id="outline-container-org5423112" class="outline-3">
+<h3 id="org5423112">Choices cases and select</h3>
+<div class="outline-text-3" id="text-org5423112">
 <div class="org-src-container">
 <pre class="src src-shell">
   shopt -s extglob
@@ -725,9 +725,9 @@ The ;;&amp; operator at the end The next matching pattern will be matched instea
 </div>
 </div>
 
-<div id="outline-container-orgcfb8a3f" class="outline-3">
-<h3 id="orgcfb8a3f">Selects</h3>
-<div class="outline-text-3" id="text-orgcfb8a3f">
+<div id="outline-container-org94b8056" class="outline-3">
+<h3 id="org94b8056">Selects</h3>
+<div class="outline-text-3" id="text-org94b8056">
 <div class="org-src-container">
 <pre class="src src-shell">
 <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Which of these does not belong in the group?"</span>; <span style="font-style: italic;">\</span>
