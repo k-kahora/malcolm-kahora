@@ -23,6 +23,7 @@
              :publishing-directory "./public" ; outpit directory
              :publishing-function 'org-html-publish-to-html
 	            :with-author nil           ;; Don't include author name
+	     :with-latex t
              :with-creator t            ;; Include Emacs and Org versions in footer
              :with-toc t                ;; Include a table of contents
              :section-numbers nil       ;; Don't include section numbers
