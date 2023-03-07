@@ -22,6 +22,7 @@
              :base-directory "./content" ; all org files
              :publishing-directory "./public" ; outpit directory
              :publishing-function 'org-html-publish-to-html
+	     :exclude "bash/*"
 	            :with-author nil           ;; Don't include author name
 	     :with-latex t
              :with-creator t            ;; Include Emacs and Org versions in footer
