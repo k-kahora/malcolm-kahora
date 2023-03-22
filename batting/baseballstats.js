@@ -6,6 +6,8 @@ var selectNewData = function() {
 
 }
 
+var duration_animation = 1000;
+
 var colors = [];
 
 var formatHash = function(param, value) {
@@ -163,17 +165,7 @@ var dates = {}, finalDates = [];
 
 d3.csv("batting.csv", rowConverter, function(error, data, index) {
 
-	/* indexes of types */
-
-	// for (var i = 5; i < data[0].length - 4; ++i) {
-
-	// 	types[i - 5] = data[0]
-
-	// }
-
 	types = Object.entries(data[0]);
-
-
 
 	for (var i = 3; i < types.length; ++i) {
 
@@ -351,7 +343,7 @@ d3.csv("batting.csv", rowConverter, function(error, data, index) {
 				.selectAll("path")
 				.data(series)
 				.transition()
-				.duration(3000)
+				.duration(duration_animation)
 				.attr("d", area);
 
 			yScale.domain([0, d3.max(finalDates, function(d) {
@@ -360,7 +352,7 @@ d3.csv("batting.csv", rowConverter, function(error, data, index) {
 			})]).range([h - padding, padding]);
 
 			d3.select("g.axis.y").transition()
-				.duration(3000)
+				.duration(duration_animation)
 				.call(yAxis);
 
 		});
@@ -474,11 +466,11 @@ d3.csv("batting.csv", rowConverter, function(error, data, index) {
 
 			var areaTransition = newPaths.transition()
 			    
-			    .duration(3000)
+			    .duration(duration_animation)
 
 		    .delay(function(d, i) {
 
-					return i * 25;
+					return i;
 
 				})
 
@@ -502,7 +494,7 @@ d3.csv("batting.csv", rowConverter, function(error, data, index) {
 			})]).range([h - padding, padding]);
 
 			areaTransition.transition()
-			.delay(2000)
+			.delay(500)
 			.duration(1500)
 				.on("start", function() {
 

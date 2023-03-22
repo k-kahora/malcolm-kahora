@@ -21,42 +21,42 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd21cf28">Welcome</a>
+<li><a href="#org1adb4cc">Welcome</a>
 <ul>
-<li><a href="#org6b739f6">Interests</a></li>
-<li><a href="#org301ab17">Projects</a></li>
+<li><a href="#org2b8524b">Interests</a></li>
+<li><a href="#orgd0c08e4">Projects</a></li>
 </ul>
 </li>
-<li><a href="#org51b1925">Projects</a>
+<li><a href="#orgac4a1a9">Projects</a>
 <ul>
-<li><a href="#orga9cd394">PathFinding</a></li>
+<li><a href="#org980904c">PathFinding</a></li>
 </ul>
 </li>
-<li><a href="#org9caedac">Tutorials</a>
+<li><a href="#orgc283da6">Tutorials</a>
 <ul>
-<li><a href="#org01d13b2">Installing Mano Simulator on Windows/Linux</a></li>
+<li><a href="#org3a6beef">Installing Mano Simulator on Windows/Linux</a></li>
 </ul>
 </li>
-<li><a href="#org69cce38">Data Simulation with D3.js</a></li>
-<li><a href="#org07ea72e">Github</a></li>
-<li><a href="#org5f739d1"><span class="todo TODO">TODO</span> Data Base of Notes</a></li>
-<li><a href="#org480b8f6"><span class="todo TODO">TODO</span> Links</a></li>
+<li><a href="#orga0e9928">Data Simulation with D3.js</a></li>
+<li><a href="#org2a8872b">Github</a></li>
+<li><a href="#org2fb17a1"><span class="todo TODO">TODO</span> Data Base of Notes</a></li>
+<li><a href="#org5ce2b34"><span class="todo TODO">TODO</span> Links</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgd21cf28" class="outline-2">
-<h2 id="orgd21cf28">Welcome</h2>
-<div class="outline-text-2" id="text-orgd21cf28">
+<div id="outline-container-org1adb4cc" class="outline-2">
+<h2 id="org1adb4cc">Welcome</h2>
+<div class="outline-text-2" id="text-org1adb4cc">
 <p>
 The purpose of this site is to display my portfolio.  These include all my past procts as well as all relevant accomplishments.  The site is nothing fancy, it is generated via org-mode.  A markdown like language in Emacs that exports easily to html.  This way I can keep the site simple while having it focus on my work.  This site is generated via.
 </p>
 </div>
 
-<div id="outline-container-org6b739f6" class="outline-3">
-<h3 id="org6b739f6">Interests</h3>
-<div class="outline-text-3" id="text-org6b739f6">
+<div id="outline-container-org2b8524b" class="outline-3">
+<h3 id="org2b8524b">Interests</h3>
+<div class="outline-text-3" id="text-org2b8524b">
 <ul class="org-ul">
 <li>Keyboard/Layout/Current Speed/VIM with the layout</li>
 <li>Emacs/Layout philsophy/Reason I use emacs</li>
@@ -65,18 +65,18 @@ The purpose of this site is to display my portfolio.  These include all my past 
 </ul>
 </div>
 </div>
-<div id="outline-container-org301ab17" class="outline-3">
-<h3 id="org301ab17">Projects</h3>
-<div class="outline-text-3" id="text-org301ab17">
+<div id="outline-container-orgd0c08e4" class="outline-3">
+<h3 id="orgd0c08e4">Projects</h3>
+<div class="outline-text-3" id="text-orgd0c08e4">
 <p>
 <a href="./README.html">init.el</a>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org51b1925" class="outline-2">
-<h2 id="org51b1925">Projects</h2>
-<div class="outline-text-2" id="text-org51b1925">
+<div id="outline-container-orgac4a1a9" class="outline-2">
+<h2 id="orgac4a1a9">Projects</h2>
+<div class="outline-text-2" id="text-orgac4a1a9">
 <ul class="org-ul">
 <li><a href="./projects/video.html">Internship video</a></li>
 <li><a href="./projects/arcade-game.html">Arcade Game</a></li>
@@ -92,9 +92,9 @@ The purpose of this site is to display my portfolio.  These include all my past 
 </p>
 </div>
 
-<div id="outline-container-orga9cd394" class="outline-3">
-<h3 id="orga9cd394">PathFinding</h3>
-<div class="outline-text-3" id="text-orga9cd394">
+<div id="outline-container-org980904c" class="outline-3">
+<h3 id="org980904c">PathFinding</h3>
+<div class="outline-text-3" id="text-org980904c">
 <p>
 This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
 </p>
@@ -106,45 +106,39 @@ This was my first successful hackathon my team ended up winning a prize which wa
 </div>
 </div>
 
-<div id="outline-container-org9caedac" class="outline-2">
-<h2 id="org9caedac">Tutorials</h2>
-<div class="outline-text-2" id="text-org9caedac">
+<div id="outline-container-orgc283da6" class="outline-2">
+<h2 id="orgc283da6">Tutorials</h2>
+<div class="outline-text-2" id="text-orgc283da6">
 <p>
 I wrote this tutorial for using a assembler in my computer architecture class.
 </p>
 </div>
 
-<div id="outline-container-org01d13b2" class="outline-3">
-<h3 id="org01d13b2">Installing Mano Simulator on Windows/Linux</h3>
-<div class="outline-text-3" id="text-org01d13b2">
-<p>
-<a href="./mano_instructions.html">Mano Sim</a>
-</p>
+<div id="outline-container-org3a6beef" class="outline-3">
+<h3 id="org3a6beef">Installing Mano Simulator on Windows/Linux</h3>
 </div>
 </div>
-</div>
-
-<div id="outline-container-org69cce38" class="outline-2">
-<h2 id="org69cce38">Data Simulation with D3.js</h2>
-<div class="outline-text-2" id="text-org69cce38">
+<div id="outline-container-orga0e9928" class="outline-2">
+<h2 id="orga0e9928">Data Simulation with D3.js</h2>
+<div class="outline-text-2" id="text-orga0e9928">
 <p>
 <a href="../batting/main.html">Base Ball Stats</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org07ea72e" class="outline-2">
-<h2 id="org07ea72e">Github</h2>
-<div class="outline-text-2" id="text-org07ea72e">
+<div id="outline-container-org2a8872b" class="outline-2">
+<h2 id="org2a8872b">Github</h2>
+<div class="outline-text-2" id="text-org2a8872b">
 <p>
 Here's my <a href="https://github.com/cerealman23">github</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5f739d1" class="outline-2">
-<h2 id="org5f739d1"><span class="todo TODO">TODO</span> Data Base of Notes</h2>
-<div class="outline-text-2" id="text-org5f739d1">
+<div id="outline-container-org2fb17a1" class="outline-2">
+<h2 id="org2fb17a1"><span class="todo TODO">TODO</span> Data Base of Notes</h2>
+<div class="outline-text-2" id="text-org2fb17a1">
 <p>
 "I want to add my org roam files here"
 <a href="./RoamNotes/20210831121049-classes.html">org-roam</a>
@@ -152,9 +146,9 @@ Here's my <a href="https://github.com/cerealman23">github</a>
 </div>
 </div>
 
-<div id="outline-container-org480b8f6" class="outline-2">
-<h2 id="org480b8f6"><span class="todo TODO">TODO</span> Links</h2>
-<div class="outline-text-2" id="text-org480b8f6">
+<div id="outline-container-org5ce2b34" class="outline-2">
+<h2 id="org5ce2b34"><span class="todo TODO">TODO</span> Links</h2>
+<div class="outline-text-2" id="text-org5ce2b34">
 <p>
 <a href="https://www.instagram.com/malcolmkahora/">Instagram</a>
 </p>
@@ -162,7 +156,7 @@ Here's my <a href="https://github.com/cerealman23">github</a>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.2)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.3 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
 </div>
 </body>
 </html>

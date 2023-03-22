@@ -17,20 +17,22 @@
 <body>
 <div id="content" class="content">
 <p>
-As a child I played alot of Wii tanks with my cousin so I wanted to make my own version.  Most of the creative is from my college dining hall.  The food their atrocious and I wanted to memorialize it.
+As a child I played alot of Wii tanks with my cousin so I wanted to make my own version.  Most of the creative is from my college dining hall.  The food their atrocious and I wanted to memorialize it.  I made this over the course of six months to pass time during quarintine
+</p>
+
+
+<p>
+Controls: Move (a-s-d-f)
+Drop Mine: (SPACE)
+Shoot: (Left Click)
 </p>
 
 <ul class="org-ul">
 <li><a href="../Pirate/index.html">game link</a></li>
 </ul>
-<p>
-Controls: Move (a-s-d-f)
-Mine: (SPACE)
-Shoot: (Left Click)
-</p>
 </div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.2)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.3 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
 </div>
 </body>
 </html>
