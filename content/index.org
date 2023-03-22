@@ -6,50 +6,25 @@
 
 * Welcome
 
-The purpose of this site is to display my portfolio.  These include all my past procts as well as all relevant accomplishments.  The site is nothing fancy, it is generated via org-mode.  A markdown like language in Emacs that exports easily to html.  This way I can keep the site simple while having it focus on my work.  This site is generated via.
+The purpose of this site is to display my portfolio.  These include all my past procts as well as all relevant accomplishments.  The site is nothing fancy, it is generated via org-mode.  A markdown like language in Emacs that exports easily to html.  This way I can keep the site simple while having it focus on my work.  
 
 ** Interests
+- Keyboard Layout: RTSHD
+- Current WPM: 56
+- Editor: Emacs
+- Current Operating System: Fedora
+- Window Manager: Sway
 
-- Keyboard/Layout/Current Speed/VIM with the layout
-- Emacs/Layout philsophy/Reason I use emacs  
-- Emacs is [[https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ][System Crafters]] (Add site link).   
-- Guix why I use it
-** Projects
+* Emacs Config
 [[./README.org][init.el]]
+
 * Projects
 
 - [[./projects/video.org][Internship video]]
 - [[./projects/arcade-game.org][Arcade Game]]
 - [[./projects/path-finder.org][Path finder]]
 - [[./projects/baseball-stats.org][Baseball stats finder]]
-- County mapping
-
-
 
 [[../Pirate/index.html][game]]
 
-** PathFinding
-
-This was my first successful hackathon my team ended up winning a prize which was really cool.  The idea was to be able to import a image and draw paths on that image.  One could then generate the shortest path based on the users start and end point on the map.
-
-[[../PathFinding/index.html][TCNJ Mapping]]
-
-* Tutorials
-
-I wrote this tutorial for using a assembler in my computer architecture class.
-
-** Installing Mano Simulator on Windows/Linux
-* Data Simulation with D3.js
-
-[[../batting/main.html][Base Ball Stats]]
-
-* Github
-Here's my [[https://github.com/cerealman23][github]]
-
-* TODO Data Base of Notes
-"I want to add my org roam files here"
-[[./RoamNotes/20210831121049-classes.org][org-roam]]
-
-* TODO Links
-[[https://www.instagram.com/malcolmkahora/][Instagram]]
-
+* [[https://github.com/cerealman23][Github]]

@@ -7,22 +7,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 </head>
 <body>
 <div id="content" class="content">
 <p>
-As a child I played alot of Wii tanks with my cousin so I wanted to make my own version.  Most of the creative is from my college dining hall.  The food their atrocious and I wanted to memorialize it.
+As a child I played alot of Wii tanks with my cousin so I wanted to make my own version.  Most of the creative is from my college dining hall.  The food their atrocious and I wanted to memorialize it.  I made this over the course of six months to pass time during quarintine
 </p>
+
 
 <p>
 Controls: Move (a-s-d-f)
-Mine: (SPACE)
+Drop Mine: (SPACE)
 Shoot: (Left Click)
 </p>
+
+<ul class="org-ul">
+<li><a href="../Pirate/index.html">game link</a></li>
+</ul>
 </div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.2)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.3 (<a href="https://orgmode.org">Org</a> mode 9.5.5)</p>
 </div>
 </body>
 </html>

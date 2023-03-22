@@ -1,0 +1,11 @@
+
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+In 2021 our school hosted a hackathon.  I had experince in Java and was interested in path-finding alogorithim's.  The goal of this project was to create a map of our campus and find the best path between two points.  However due to time limitation's we ended up bastically making a pathfinding GUI tool.
+
+Control's
+
+- If node is selected place a node with a button press
+- Connect two nodes by dragging a line between them with path selected.
+- Set a start and end-point =Click= generate to find the best path.
+
+- [[../PathFinding/index.html][Path finder]]
