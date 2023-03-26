@@ -1,21 +1,23 @@
 #+TITLE: Website
 #+AUTHOR: Malcolm Kahora
 #+EMAIL: Mango22MJK@gmail.com
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * Welcome
 
-The purpose of this site is to display my portfolio.  These include all my past procts as well as all relevant accomplishments.  The site is nothing fancy, it is generated via org-mode.  A markdown like language in Emacs that exports easily to html.  This way I can keep the site simple while having it focus on my work.  
+The purpose of this site is to display my portfolio.  These include all my past project's as well as all my relevant accomplishments.  The is generated via a org-mode file.  A markdown like language in Emacs that exports easily to html.  This way I can keep the site simple while having it focus on my work.  
 
 ** Interests
+
 - Keyboard Layout: RTSHD
 - Current WPM: 56
-- Editor: Emacs
+- Editor: Emacs (with vi motion's)
 - Current Operating System: Fedora
 - Window Manager: Sway
 
 * Emacs Config
+
 [[./README.org][init.el]]
 
 * Projects
@@ -25,6 +27,31 @@ The purpose of this site is to display my portfolio.  These include all my past 
 - [[./projects/path-finder.org][Path finder]]
 - [[./projects/baseball-stats.org][Baseball stats finder]]
 
-[[../Pirate/index.html][game]]
 
 * [[https://github.com/cerealman23][Github]]
+* My opinions about text editors and working on a computer in general
+
+A editor should be an extension of yourself.  Using it should be second nature.  If you are going to spend most of your life programming you want tool's that can grow with you.  Becoming good with your editor and the tool's you use will only benefit you.  Linux and Emacs allow that.  Do not use a Mouse! The mouse can easily cause Carpal Tunnel Syndrome if used frequently.  Sticking to the keyboard will improve your hand health and help you develop faster.
+
+** Emacs
+
+Emacs my favorite piece of software, the level to which you can customize it and the fluidity it can achieve in one application is pretty mind-blowing, here are a few non exhaustive example's of what I use it for.   
+
+- Text Editing
+- Terminal Emulator
+- SSH client
+- Programming with LSP's
+- Git interface
+- Todo list as well as scheduled agenda
+- Literate documentation
+- File management
+- Latex Editing
+- Spell Checking
+
+  There is alot more this software is capable of and I encourage you to explore more into how it can meet your need's, it is truly a joy to use. 
+
+  Check out my Emacs config file [[./config.org][here]]
+
+** My keyboard of choice
+
+The Ferris Sweep
