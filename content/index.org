@@ -11,14 +11,12 @@ The purpose of this site is to display my portfolio.  These include all my past 
 ** Interests
 
 - Keyboard Layout: RTSHD
-- Current WPM: 56
-- Editor: Emacs (with vi motion's)
-- Current Operating System: Fedora
-- Window Manager: Sway
+- Current WPM: 74
+- Editor: Emacs 
+- Current Operating System: NixOS
+- Window Manager: Hyprland
 
-* Emacs Config
-
-[[./README.org][init.el]]
+* [[https://github.com/k-kahora/nix-dotfiles][Nix Dotfiles]]
 
 * Projects
 
@@ -29,29 +27,9 @@ The purpose of this site is to display my portfolio.  These include all my past 
 
 
 * [[https://github.com/cerealman23][Github]]
-* My opinions about text editors and working on a computer in general
 
-A editor should be an extension of yourself.  Using it should be second nature.  If you are going to spend most of your life programming you want tool's that can grow with you.  Becoming good with your editor and the tool's you use will only benefit you.  Linux and Emacs allow that.  Do not use a Mouse! The mouse can easily cause Carpal Tunnel Syndrome if used frequently.  Sticking to the keyboard will improve your hand health and help you develop faster.
+** My keyboards of choice
 
-** Emacs
-
-Emacs my favorite piece of software, the level to which you can customize it and the fluidity it can achieve in one application is pretty mind-blowing, here are a few non exhaustive example's of what I use it for.   
-
-- Text Editing
-- Terminal Emulator
-- SSH client
-- Programming with LSP's
-- Git interface
-- Todo list as well as scheduled agenda
-- Literate documentation
-- File management
-- Latex Editing
-- Spell Checking
-
-  There is alot more this software is capable of and I encourage you to explore more into how it can meet your need's, it is truly a joy to use. 
-
-  Check out my Emacs config file [[./config.org][here]]
-
-** My keyboard of choice
-
-The Ferris Sweep
+- [[https://github.com/davidphilipbarr/Sweep][Ferris Sweep]] : My first ergo board, very fun to use. The low profile makes this thing very snappy.
+- [[https://bastardkb.com/product/charybdis-mini-kit/][Charybdis Mini]] : Absolute hell to build due to the flexible PCB, but my most comfortable keyboard. The trackball makes this thing a bulldozer when it comes to getting things done on a computer.
+- [[https://www.boardsource.xyz/products/microdox][Microdox]] : A very cramped keyboard, but using the nice!nanos for Bluetooth is what makes this the board I choose when working outside my room.
