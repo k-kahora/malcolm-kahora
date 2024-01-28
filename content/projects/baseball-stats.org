@@ -2,4 +2,4 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 In order to prepare for the next hackathon I wanted to learn a new technology and D3.js caught my interest.  I made this project to prep for the event.  If takes a static csv file about baseball stats and categorize them by team.  You can also choose what stat to graph with the ui tool above.  Hovering over a portion of the graph will show what team is represented there you can click it to zoom in.
 
-- [[../batting/index.html][Path finder]]
+- [[../batting/index.html][Baseball Stats]]
