@@ -26,7 +26,7 @@ The purpose of this site is to display my portfolio.  These include all my past 
 - [[./projects/baseball-stats.org][Baseball stats finder]]
 
 
-* [[https://github.com/cerealman23][Github]]
+* [[https://github.com/k-kahora][Github]]
 
 ** My keyboards of choice
 
